@@ -6,7 +6,7 @@ img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUgAAAEwCAYAAADVZeifAAA
 
 function yh() {
   // 樱花数量
-  var sakuraNum = 100;
+  var sakuraNum = 50;
   // 樱花越界限制次数, -1不做限制,无限循环
   var limitTimes = -1;
 
@@ -224,4 +224,149 @@ function yh() {
 }
 
 yh()
+
+const op1 = document.querySelector("#text1");
+const op2 = document.querySelector("#text2");
+const sda = document.getElementById("sda");
+const arrow = document.querySelector(".arrow");
+
+let text1 = "世界に捨てられたとしても、自分の信念を貫くことが大切です";
+let text2 = "即使被世界抛弃，也要坚持自己的信念";
+let index = 0;
+
+function typeWriter() {
+  if (index < text1.length) {
+    op1.innerHTML += text1.charAt(index);
+    index++;
+    setTimeout(typeWriter, 50);
+  } else {
+    sda.classList.add("fullHeight");
+    setTimeout(() => {
+      op2.style.opacity = "1";
+      let index2 = 0;
+
+      function typeWriter2() {
+        if (index2 < text2.length) {
+          op2.innerHTML += text2.charAt(index2);
+          index2++;
+          setTimeout(typeWriter2, 40);
+        } else {
+          setTimeout(function () {
+            arrow.classList.add("show");
+          }, 500);
+        }
+      }
+
+      typeWriter2();
+    }, 0);
+  }
+}
+setTimeout(function () {
+  typeWriter();
+}, 1500);
+
+function jdt() {
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach(bar => {
+      const max = bar.getAttribute('max');
+      const value = bar.getAttribute('value');
+      const percentage = (value / max) * 100;
+      bar.style.animation = `loadProgress ${percentage / 100 * 2}s ease-in-out forwards`;
+    });
+  });
+
+}
+
+function expandAda() {
+  var adaElement = document.querySelector('.ada');
+  var adaElements = document.querySelectorAll('.ad-op');
+  var adaElementss = document.querySelectorAll('.img');
+  var adaElementsss = document.querySelectorAll('.jm1');
+  adaElement.style.height = '550px';
+  setTimeout(function () {
+    // 创建一个新的Audio对象
+    //var audio = new Audio('public/audios/02.mp3');
+    // 播放音乐
+    //audio.play();
+
+    adaElements.forEach(function (element) {
+      element.style.visibility = 'visible';
+    });
+    adaElementss.forEach(function (element) {
+      element.style.visibility = 'visible';
+    });
+    adaElementsss.forEach(function (element) {
+      element.style.display = 'block';
+    });
+  }, 250)
+}
+
+const ad = document.querySelector(".ad");
+arrow.addEventListener("click", function () {
+  ad.scrollIntoView({ behavior: "smooth" });
+  setTimeout(function () {
+    expandAda();
+    jdt()
+  }, 500);
+});
+
+function openBilibili() {
+  window.open("https://space.bilibili.com/699823793", "_blank");
+}
+
+// 获取按钮元素
+var bt1 = document.getElementById('bt1');
+var bt2 = document.getElementById('bt2');
+var bt3 = document.getElementById('bt3');
+var bt4 = document.getElementById('bt4');
+var bt4 = document.getElementById('bt5');
+
+// 获取界面元素
+var jm1 = document.querySelector('.jm1');
+var jm2 = document.querySelector('.jm2');
+var jm3 = document.querySelector('.jm3');
+var jm4 = document.querySelector('.jm4');
+var jm4 = document.querySelector('.jm5');
+
+// 为按钮添加点击事件监听器
+bt1.addEventListener('click', function () {
+  jm1.style.display = 'block';
+  jm2.style.display = 'none';
+  jm3.style.display = 'none';
+  jm4.style.display = 'none';
+  jm5.style.display = 'none';
+});
+
+bt2.addEventListener('click', function () {
+  jm1.style.display = 'none';
+  jm2.style.display = 'block';
+  jm3.style.display = 'none';
+  jm4.style.display = 'none';
+  jm5.style.display = 'none';
+});
+
+bt3.addEventListener('click', function () {
+  jm1.style.display = 'none';
+  jm2.style.display = 'none';
+  jm3.style.display = 'block';
+  jm4.style.display = 'none';
+  jm5.style.display = 'none';
+});
+
+bt4.addEventListener('click', function () {
+  jm1.style.display = 'none';
+  jm2.style.display = 'none';
+  jm3.style.display = 'none';
+  jm4.style.display = 'block';
+  jm5.style.display = 'none';
+});
+
+bt5.addEventListener('click', function () {
+  jm1.style.display = 'none';
+  jm2.style.display = 'none';
+  jm3.style.display = 'none';
+  jm4.style.display = 'none';
+  jm5.style.display = 'block';
+});
 
