@@ -1,1047 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>无聊加肥猫的个人网站</title>
-</head>
-
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
-
-    body {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .sd {
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);*/
-        background: url(img/alxy.jpg);
-        background-size: cover;
-    }
-
-
-    .sda {
-        width: 500px;
-        height: 60px;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 10px 30px #00000085;
-        border-radius: 5px;
-        color: #8193b2;
-        background-color: rgb(12, 22, 45);
-        border: 1px solid rgb(70, 80, 92);
-        transition: height 0.7s;
-        /* 高度变化动画 */
-    }
-
-    .sda.fullHeight {
-        height: 80px;
-    }
-
-    .sdaa {
-        padding-left: 20px;
-    }
-
-    /* @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    } */
-
-    @keyframes twinkling {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0.5;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .star {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background-color: white;
-        border-radius: 50%;
-        animation: twinkling 1s infinite;
-    }
-
-    .star:nth-child(1) {
-        top: 10%;
-        left: 23%;
-    }
-
-    .star:nth-child(2) {
-        top: 15%;
-        left: 98%;
-    }
-
-    .star:nth-child(3) {
-        top: 30%;
-        left: 30%;
-    }
-
-    .star:nth-child(4) {
-        top: 20%;
-        left: 42%;
-    }
-
-    .star:nth-child(5) {
-        top: 80%;
-        left: 70%;
-    }
-
-    .star:nth-child(6) {
-        top: 42%;
-        left: 3%;
-    }
-
-    .star:nth-child(7) {
-        top: 64%;
-        left: 83%;
-    }
-
-    .star:nth-child(8) {
-        top: 78%;
-        left: 29%;
-    }
-
-    .star:nth-child(9) {
-        top: 54%;
-        left: 62%;
-    }
-
-    .star:nth-child(10) {
-        top: 23%;
-        left: 49%;
-    }
-
-    .star:nth-child(11) {
-        top: 99%;
-        left: 41%;
-    }
-
-    .star:nth-child(12) {
-        top: 6%;
-        left: 77%;
-    }
-
-    .star:nth-child(13) {
-        top: 68%;
-        left: 24%;
-    }
-
-    .star:nth-child(14) {
-        top: 50%;
-        left: 87%;
-    }
-
-    .star:nth-child(15) {
-        top: 26%;
-        left: 59%;
-    }
-
-    .star:nth-child(16) {
-        top: 91%;
-        left: 13%;
-    }
-
-    .star:nth-child(17) {
-        top: 40%;
-        left: 50%;
-    }
-
-    .star:nth-child(18) {
-        top: 60%;
-        left: 30%;
-    }
-
-    .star:nth-child(19) {
-        top: 32%;
-        left: 75%;
-    }
-
-    .star:nth-child(20) {
-        top: 87%;
-        left: 87%;
-    }
-
-    .arrow {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: black;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .arrow.show {
-        opacity: 1;
-    }
-
-    .arrow span {
-        font-size: 12px;
-        animation: blink 4s infinite;
-    }
-
-    @keyframes blink {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .arrow::after {
-        content: "";
-        display: block;
-        margin-top: 5px;
-        width: 15px;
-        height: 15px;
-        border-left: 2px solid #8193b2;
-        border-bottom: 2px solid #8193b2;
-        transform: rotate(-45deg);
-        animation: blink 4s infinite;
-    }
-
-    /*界面2*/
-
-    .ad {
-        position: relative;
-        background-color: #f9f4e7;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        height: 100vh;
-        background: url(https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2);
-        background-size: cover;
-    }
-
-    .ada {
-        width: 1200px;
-        height: 0px;
-        box-shadow: 0 10px 30px #00000085;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        transition: height 0.5s ease-in-out;
-    }
-
-    .tx-bj img {
-        width: 100px;
-        border-radius: 100%;
-        border: 1px solid black;
-        margin-top: 130px;
-    }
-
-    .img1-bj {
-        width: 80%;
-        height: 100%;
-        border-radius: 0px 20px 20px 0px;
-        background: url(img/wl.jpg);
-        background-size: cover;
-    }
-
-    .ad-op {
-        width: 20%;
-        height: 100%;
-        visibility: hidden;
-    }
-
-    .tx-bj {
-        width: 100%;
-        height: 25%;
-        background: url(img/tx-bj.png);
-        background-size: cover;
-        border-radius: 20px 0px 0px 0px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .zx1 {
-        width: 100%;
-        height: 1px;
-        background: #9facb2;
-        margin-top: 60px;
-    }
-
-    .js {
-        width: 100%;
-        height: 100%;
-    }
-
-    .js img {
-        width: 25px;
-        height: 25px;
-        padding: 10px;
-    }
-
-    .jsa {
-        width: 100%;
-        height: 7%;
-        align-items: center;
-        display: flex;
-    }
-
-    .dm-bj {
-        width: 100%;
-        height: 210px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .dm {
-        width: 90%;
-        height: 80%;
-        box-shadow: 0 10px 30px #00000085;
-        background: black;
-        border-radius: 7px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .dma {
-        width: 100%;
-        height: 20%;
-        display: flex;
-        color: white;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .progress-bar {
-        width: 90%;
-    }
-
-    .op {
-        width: 87%;
-    }
-
-    .dma-bj {
-        width: 95%;
-        height: 95%;
-        border-radius: 7px;
-        background: #24292f;
-    }
-
-    @keyframes loadProgress {
-        from {
-            value: 0;
-        }
-
-        to {
-            value: 100;
-        }
-    }
-
-    .progress-bar {
-        animation-name: loadProgress;
-        animation-duration: 2s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-    }
-
-    .wz {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .wz1 {
-        font-size: 40px;
-        font-style: italic;
-    }
-
-    .wz2 {
-        font-style: italic;
-        font-size: 30px;
-    }
-
-    .wz3 {
-        font-style: italic;
-        font-size: 10px;
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-        visibility: hidden;
-    }
-
-    .but {
-        width: 40%;
-        height: 50px;
-        display: flex;
-        padding: 20px;
-        cursor: pointer;
-    }
-
-    .but p {
-        width: 80px;
-        height: 25px;
-        background: #a6aeb346;
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        font-style: italic;
-        margin: 5px;
-        cursor: pointer;
-    }
-
-    .jm {
-        width: 100%;
-        height: 300px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .gs-bj {
-        width: 100%;
-        height: 30%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .gs {
-        width: 90%;
-        height: 100%;
-        border: 1px solid rgb(70, 80, 92);
-        background: rgba(255, 255, 255, 0.541);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px #00000085;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .yx-nl {
-        width: 100%;
-        height: 200px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-    }
-
-    .yx {
-        width: 44%;
-        height: 90%;
-        border: 1px solid rgb(70, 80, 92);
-        background: rgba(255, 255, 255, 0.541);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px #00000085;
-        margin: 10px;
-    }
-
-    .yx img {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-    }
-
-    .yx p {
-        padding: 5px;
-    }
-
-    .bt {
-        padding: 5px;
-        font-weight: 800;
-        font-size: 15px;
-    }
-
-    .nl {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .qd {
-        width: 50%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .qd-1 {
-        width: 100%;
-        height: 50%;
-        display: flex;
-    }
-
-    .qd-2 {
-        width: 100%;
-        height: 50%;
-        display: flex;
-    }
-
-    @keyframes flipOutY {
-        from {
-            transform: perspective(400px) rotateY(0deg);
-        }
-
-        to {
-            transform: perspective(400px) rotateY(-180deg);
-        }
-    }
-
-    @keyframes flipInY {
-        from {
-            transform: perspective(400px) rotateY(180deg);
-        }
-
-        to {
-            transform: perspective(400px) rotateY(0deg);
-        }
-    }
-
-
-    /*界面设置*/
-    .jm1 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm2 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm3 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm4 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm5 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-
-    :root {
-        --color-font: #000000;
-        --color-bg-progress-b: #6b6b6b;
-        --color-bg-progress-l: #a0a0a0;
-        --color-bg-progress-m: #ffffff;
-    }
-
-    html {
-        font-size: 0.0625rem;
-        color: var(--color-font);
-    }
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
     
-    .music-content-bg {
-        visibility: visible;
-    }
-    
-    .music-content {
-        height: 280px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    
-    .music-box {
-        flex: none;
-        width: 400rem;
-        height: 200rem;
-        border-radius: 30rem;
-        box-sizing: border-box;
-        background-color: rgb(232, 232, 232, 0.7);
-        backdrop-filter: blur(20px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30rem;
-        box-shadow: inset 0px 0px 10px 2px rgb(255, 255, 255, 0.5);
-        user-select: none;
-    }
-    
-    /* music-box 上部分 */
-    .music-box>article {
-        width: 100%;
-        height: 100rem;
-        display: flex;
-        justify-content: flex-start;
-    }
-    
-    /* 图片部分 */
-    .m-img-box {
-        flex: none;
-        width: 100rem;
-        height: 100rem;
-        border-radius: 20rem;
-        overflow: hidden;
-        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.25),
-            0px 0px 8px 0px inset rgba(0, 0, 0, 0.05);
-    }
-    
-    .m-img-content {
-        width: 100%;
-        height: 100%;
-        transform: translateY(-100%);
-    }
-    
-    .m-img-content.tran {
-        transition: transform 0.4s linear 0.3s;
-    }
-    
-    .m-img-content>img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8rem;
-        transform: scale(1);
-    }
-    
-    .m-img-content>img.anim {
-        animation: img-anim 1s linear forwards;
-    }
-    
-    @keyframes img-anim {
-        30% {
-            transform: scale(0.6);
-        }
-    
-        70% {
-            transform: scale(0.6);
-        }
-    
-        100% {
-            transform: scale(1);
-        }
-    }
-    
-    /* 描述部分 */
-    .m-description-content {
-        position: relative;
-        margin-left: 25rem;
-        width: 0;
-        flex: 1;
-    }
-    
-    .m-description-content>article {
-        opacity: 1;
-    }
-    
-    .m-description-content>article.anim {
-        animation: desc-cont-anim 1s ease-in forwards;
-    }
-    
-    @keyframes desc-cont-anim {
-        30% {
-            opacity: 0;
-            transform: var(--transform-translateY);
-        }
-    
-        70% {
-            opacity: 0;
-            transform: translateY(0);
-        }
-    
-        100% {
-            opacity: 1;
-        }
-    }
-    
-    .m-title {
-        font-size: 18rem;
-        font-weight: 500;
-        height: 30rem;
-        line-height: 30rem;
-    }
-    
-    .m-author {
-        font-size: 15rem;
-        font-weight: 400;
-        color: #2f2f2f;
-    }
-    
-    .m-title,
-    .m-author {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-    
-    .m-btn-box {
-        position: absolute;
-        bottom: 0;
-        width: 180rem;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .m-btn-box>button {
-        background: none;
-        border: none;
-        outline: none;
-        width: 22rem;
-        height: 22rem;
-    }
-    
-    .icon {
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
-        fill: var(--color-font);
-        overflow: hidden;
-    }
-    
-    .m-btn-box>button:active>.icon {
-        width: 20rem;
-        height: 20rem;
-    }
-    
-    /* music-box 下部分 */
-    .music-box>section {
-        width: 100%;
-        font-size: 16rem;
-        font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 5rem;
-        box-sizing: border-box;
-    }
-    
-    .m-progress-bar {
-        width: 200rem;
-        height: 6rem;
-        background-color: var(--color-bg-progress-b);
-        border-radius: 3rem;
-        overflow: hidden;
-    }
-    
-    .m-progress-main {
-        float: left;
-        height: 100%;
-        width: 20%;
-        background-color: var(--color-bg-progress-m);
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    
-    .m-progress-btn {
-        position: absolute;
-        transform: translateX(50%);
-        width: 12rem;
-        height: 12rem;
-        border-radius: 50%;
-        background-color: var(--color-bg-progress-m);
-        transition: width 0.1s linear, height 0.1s linear;
-    }
-    
-    .m-progress-btn:active {
-        width: 14rem;
-        height: 14rem;
-    }
-    
-    .m-progress-load {
-        height: 100%;
-        width: 50%;
-        background-color: var(--color-bg-progress-l);
-    }
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-
-</style>
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
 
 <body>
-    <div class="sd">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="sda" id="sda">
-            <div class="sdaa">
-                <h3 class="op1">
-                    <span id="text1" style="font-size: 14px;"></span>
-                </h3>
-                <h6 class="op2">
-                    <span id="text2"></span>
-                </h6>
-            </div>
-        </div>
-        <div class="arrow">
-            <span>点击向下</span>
-            <div class="arrow-icon"></div>
-        </div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
     </div>
-    <div class="ad">
-        <div class="ada">
-            <div class="ad-op">
-                <div class="tx-bj">
-                    <img src="img/tx.png">
-                    <h4>
-                        <span>宅男,也是可以拯救世界的!</span>
-                    </h4>
-                </div>
-                <div class="zx1"></div>
-                <div class="js">
-                    <div class="jsa">
-                        <img src="img/yx.png">
-                        <h5>
-                            <span>邮箱 3607005435@qq.com</span>
-                        </h5>
-                    </div>
-                    <div class="jsa">
-                        <img src="img/qq.png">
-                        <h5>
-                            <span>QQ 3607005435</span>
-                        </h5>
-                    </div>
-                    <div class="jsa">
-                        <img src="img/nl.png">
-                        <h5>
-                            <span>年龄 15</span>
-                        </h5>
-                    </div>
-                    <div class="jsa">
-                        <img src="img/bili.jpg" style="cursor: pointer;">
-                        <h5>
-                            <span style="cursor: pointer;" onclick="openBilibili()">B站 无聊加肥猫</span>
-                        </h5>
-                    </div>
-                    <div class="dm-bj">
-                        <div class="dm">
-                            <div class="dma-bj">
-                                <div class="dma">
-                                    <div class="op">
-                                        <h6><span>python</span></h6>
-                                    </div>
-                                    <progress value="90" max="100" class="progress-bar"></progress>
-                                </div>
-                                <div class="dma">
-                                    <div class="op">
-                                        <h6><span>HTML CSS</span></h6>
-                                    </div>
-                                    <progress value="75" max="100" class="progress-bar"></progress>
-                                </div>
-                                <div class="dma">
-                                    <div class="op">
-                                        <h6><span>javascript</span></h6>
-                                    </div>
-                                    <progress value="25" max="100" class="progress-bar"></progress>
-                                </div>
-                                <div class="dma">
-                                    <div class="op">
-                                        <h6><span>C/C++</span></h6>
-                                    </div>
-                                    <progress value="8" max="100" class="progress-bar"></progress>
-                                </div>
-                                <div class="dma">
-                                    <div class="op">
-                                        <h6><span>UE4/5</span></h6>
-                                    </div>
-                                    <progress value="2" max="100" class="progress-bar"></progress>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="img1-bj">
-                <div class="img">
-                    <div class="wz">
-                        <p class="wz1" style="cursor: pointer;" onclick="openBilibili()">BiliBili 无聊加肥猫</p>
-                        <p class="wz2" style="cursor: pointer;" onclick="openBilibili()">
-                            https://space.bilibili.com/699823793</p>
-                        <p class="wz3">粉丝:300+ 播放量:7w+ 点赞:1000+</p>
-                    </div>
-                    <div class="but">
-                        <p id="bt1">猫の成分</p>
-                        <p id="bt2">音乐</p>
-                        <p id="bt3">二次元?</p>
-                        <p id="bt4">游戏の成分</p>
-                        <p id="bt4">其他</p>
-                    </div>
-                    <div class="jm">
-                        <div class="jm1">
-                            <div class="gs-bj">
-                                <div class="gs">
-                                    <p style="font-weight: 700; font-style: italic; font-size: 30px;">
-                                        "孤独なテクノオタク、自分を救う物語"</p>
-                                </div>
-                            </div>
-                            <div class="yx-nl">
-                                <div class="yx">
-                                    <div class="bt">
-                                        <p>Hobbies</p>
-                                    </div>
-                                    <p>·ごく普通のmiHoYoユーザーで、Steamゲームプレイヤー，原神、GTA、CSGO、バトルフィールド5を好んで遊ぶ。</p>
-                                    <p>·孤独なテクノオタクで、二次元が好き。イレーナ、レム、フィーネが好きで、「魔女の旅々」、「Re:ゼロから始める異世界生活」、「君の名は。」を観るのが好き。</p>
-                                </div>
-                                <div class="yx">
-                                    <div class="nl">
-                                        <div class="qd-1">
-                                            <div class="qd">
-                                                <img src="img/py.jpg">
-                                                <p>PYTHON </p>
-                                            </div>
-                                            <div class="qd">
-                                                <img src="img/qd.jpg">
-                                                <p>HTML CSS JS</p>
-                                            </div>
-                                        </div>
-                                        <div class="qd-2">
-                                            <div class="qd">
-                                                <img src="img/C.jpg">
-                                                <p>C/C++</p>
-                                            </div>
-                                            <div class="qd">
-                                                <img src="img/ue.jpg">
-                                                <p>UE4/5</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jm3">
-                            <button>测试按钮</button>
-                        </div>
-                        <div class="jm4">
-
-                        </div>
-                        <div class="jm2">
-                            <div class="music-content-bg">
-                                <div class="music-content">
-                                    <div class="music-box">
-                                        <!-- 上部分 -->
-                                        <article>
-                                            <div class="m-img-box">
-                                                <div class="m-img-content"></div>
-                                            </div>
-                                            <div class="m-description-content">
-                                                <article>
-                                                    <p class="m-title">音乐名</p>
-                                                    <p class="m-author">作者</p>
-                                                </article>
-                                                <div class="m-btn-box">
-                                                    <button class="m-previous-btn">
-                                                        <svg class="icon" aria-hidden="true"
-                                                            style="transform: scale(-1)">
-                                                            <use href="#icon-xiayishou"></use>
-                                                        </svg>
-                                                    </button>
-                                                    <button class="m-play-btn">
-                                                        <svg class="icon" aria-hidden="true">
-                                                            <use href="#icon-bofang"></use>
-                                                        </svg>
-                                                    </button>
-                                                    <button class="m-next-btn">
-                                                        <svg class="icon" aria-hidden="true">
-                                                            <use href="#icon-xiayishou"></use>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                        <!-- 下部分 -->
-                                        <section>
-                                            <span class="m-current-time">00 : 00</span>
-                                            <div class="m-progress-bar">
-                                                <div class="m-progress-main">
-                                                    <span class="m-progress-btn"></span>
-                                                </div>
-                                                <div class="m-progress-load"></div>
-                                            </div>
-                                            <span class="m-total-time">00 : 00</span>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="jm5">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
     </div>
-    </div>
+  </div>
+</header>
 
-    <script src="jsc/iconfont.js"></script>
-    <script src="jsc/index.js"></script>
-    <script src="jsc/yh.js"></script>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/01/11/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2024-01-11T07:29:57.705Z" itemprop="datePublished">2024-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/01/11/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/01/11/hello-world/" data-id="clra6kvxu000088tfgmvoffb6" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/01/11/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
 </body>
-
 </html>
