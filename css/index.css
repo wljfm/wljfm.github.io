@@ -12,7 +12,7 @@
 
 html {
     scroll-behavior: smooth;
-    cursor: url(img/图标1.avif),auto;
+    cursor: url(img/图标1.avif), auto;
 }
 
 body {
@@ -45,8 +45,8 @@ body {
 
 /*提示窗口开始*/
 
- /* 弹出窗口样式 */
- #popup {
+/* 弹出窗口样式 */
+#popup {
     display: none;
     position: fixed;
     bottom: 20px;
@@ -98,6 +98,7 @@ nav {
     background-color: rgb(39, 37, 35);
     display: flex;
     justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
@@ -463,37 +464,37 @@ li:hover {
 }
 
 .hm {
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
 }
 
 #wz {
     color: rgb(129, 189, 199);
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
     text-decoration: underline;
 }
 
 #wzd {
     color: rgb(129, 189, 199);
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
     text-decoration: underline;
 }
 
 #wzf {
     color: rgb(129, 189, 199);
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
     text-decoration: underline;
 }
 
 #wzg {
     color: rgb(129, 189, 199);
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
     text-decoration: underline;
 }
 
 
 #wzs {
     color: rgb(129, 189, 199);
-    cursor: url(img/图标2.avif),auto;
+    cursor: url(img/图标2.avif), auto;
     text-decoration: underline;
 }
 
@@ -532,6 +533,53 @@ li:hover {
 }
 
 /*鼠标拖尾特效结束*/
+
+/*下拉菜单开始*/
+
+/* 下拉菜单容器 */
+.dropdown {
+    width: 60px;
+    position: relative;
+    display: inline-block;
+}
+
+/* 下拉菜单按钮 */
+.dropbtn {
+    background-color: rgb(39, 37, 35);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    cursor: url(img/图标2.avif), auto;
+}
+
+/* 下拉菜单内容（默认隐藏） */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* 下拉菜单链接 */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* 当鼠标悬停在下拉菜单上时显示 */
+.dropdown:hover .dropdown-content {
+    display: block;
+    cursor: url(img/图标2.avif), auto;
+}
+
+/*下拉菜单结束*/
 
 /*################################################################################################################*/
 
