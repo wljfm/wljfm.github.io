@@ -213,6 +213,18 @@
     <!--鼠标拖尾特效-->
     <div id="tail_show"></div>
 
+    <!--预加载音频-->
+    <audio src="https://wljfm.github.io/music/China-c.flac" preload="auto"></audio>
+    <audio src="https://wljfm.github.io/music/China-A.flac" preload="auto"></audio>
+    <audio src="https://wljfm.github.io/music/China-E.flac" preload="auto"></audio>
+    <audio src="https://wljfm.github.io/music/China-P.flac" preload="auto"></audio>
+    <audio src="https://wljfm.github.io/music/China-X.flac" preload="auto"></audio>
+
+    <!--预加载鼠标指针-->
+    <img src="css/img/图标1.avif" style="display: none;">
+    <img src="css/img/图标2.avif" style="display: none;">
+
+
     <script>
         //顶部导航栏点击特效
         var links = document.querySelectorAll('a');
@@ -263,7 +275,7 @@
 
         //播放音乐
         let playlist = [
-            'music/China-C.flac',
+            'https://wljfm.github.io/music/China-C.flac',
             'music/China-A.flac',
             'music/China-E.flac',
             'music/China-P.flac',
@@ -295,7 +307,7 @@
 
         document.addEventListener('click', function () {
             is += 1;
-            console.log('用户点击了(' + i + ')次界面');
+            console.log('用户点击了(' + is + ')次界面');
             if (is === 1) {
                 console.log('开始播放音乐')
                 playNext();
