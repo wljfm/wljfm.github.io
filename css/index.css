@@ -1,0 +1,630 @@
+/*BiliBili 无聊加肥猫*/
+/*
+首次编辑: 2024/1/12
+最后编辑:         
+*/
+
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: url(img/图标1.avif),auto;
+}
+
+body {
+    cursor: url(img/图标1.avif), auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 500vh;
+    padding-top: 40px;
+    /* 根据导航栏的高度调整 */
+    overflow-y: hidden;
+}
+
+/*鼠标点击特效开始*/
+
+#ripple-effect {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: rgba(243, 27, 27, 0.3) 3px solid;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 100%;
+}
+
+/*鼠标点击特效结束*/
+
+/*提示窗口开始*/
+
+ /* 弹出窗口样式 */
+ #popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: -400px;
+    width: 280px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    animation: slideInLeft 0.5s forwards;
+    background: white;
+    background-size: cover;
+}
+
+/* 左滑进入动画 */
+@keyframes slideInLeft {
+    from {
+        left: -400px;
+    }
+
+    to {
+        left: 20px;
+    }
+}
+
+/* 左滑离开动画 */
+@keyframes slideOutLeft {
+    from {
+        left: 20px;
+    }
+
+    to {
+        left: -400px;
+    }
+}
+
+#klss {
+    font-style: italic;
+}
+
+#klse {
+    font-style: italic;
+}
+
+/*提示窗口结束*/
+
+nav {
+    background-color: rgb(39, 37, 35);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    margin-left: 100px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    margin-left: -30px;
+    justify-content: center;
+    align-items: center;
+    cursor: url(img/图标2.avif), auto;
+}
+
+li:hover {
+    background-color: #a2d6df2a;
+    cursor: url(img/图标2.avif), auto;
+}
+
+/*Home页开始*/
+.beijing {
+    background: url(img/简约背景.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.beijing img {
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+    border: white 5px solid;
+    animation: float-up 1.5s ease-in-out;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.beijing span {
+    color: white;
+    font-size: 12px;
+    animation: float-up 1.5s ease-in-out;
+}
+
+#hanying {
+    font-size: 90px;
+    color: white;
+    margin-top: 10px;
+    animation: float-up 1.5s ease-in-out;
+}
+
+#jingjv {
+    font-size: 15px;
+    color: white;
+    margin: 10px;
+    animation: float-up 1.5s ease-in-out;
+}
+
+/*Home页结束*/
+
+/*About us页开始*/
+
+.beijing_about {
+    width: 100%;
+    height: 25%;
+    background: url(https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合1);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.abouts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about_gejj {
+    width: 700px;
+    /*background: rgb(32, 31, 31);*/
+    background: white;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: black;
+}
+
+#names {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-style: italic;
+    cursor: url(img/图标2.avif), auto;
+}
+
+#urls {
+    margin-left: 20px;
+    font-size: 15px;
+    font-style: italic;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.jjs {
+    display: flex;
+}
+
+.jj {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jj h1 {
+    font-size: 22px;
+}
+
+.jj span {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 13px;
+    line-height: 14px;
+}
+
+.dm {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.dm h1 {
+    font-size: 22px;
+}
+
+.xxs {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 7px;
+    line-height: 25px;
+}
+
+.progress-bar {
+    width: 80%;
+    height: 5px;
+    background-color: #f2f2f2;
+    border-radius: 1px;
+    overflow: hidden;
+    border: rgb(219, 209, 209) 1px solid;
+    margin-top: 6px;
+}
+
+.progress {
+    height: 5px;
+    border-radius: 1px;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/*About us页结束*/
+
+/*Story页开始*/
+
+.beijing_xianchong {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合2);
+    background-size: cover;
+}
+
+.gs_bj {
+    width: 600px;
+    background: white;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gs_bj h1 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.gs_bj span {
+    margin-top: 10px;
+    margin-left: 45px;
+    margin-right: 10px;
+}
+
+/*Story页结束*/
+
+/*Game页开始*/
+
+#game {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合3);
+    background-size: cover;
+}
+
+.games {
+    width: 700px;
+    background: white;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.games h1 {
+    margin-top: 10px;
+    font-size: 19px;
+    margin-left: 25px;
+}
+
+#bts {
+    margin-left: 20px;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.wy {
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+/*Game页结束*/
+
+/*contact页开始*/
+
+#contact {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(https://api.r10086.com/樱道随机图片api接口.php?图片系列=动漫综合4);
+    background-size: cover;
+}
+
+.sm {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.kls {
+    display: flex;
+    flex-direction: column;
+}
+
+.kls span {
+    align-items: center;
+    display: flex;
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+    background-color: rgb(39, 37, 35);
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 5px;
+    color: white;
+}
+
+.cbj {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zb {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.zb h1 {
+    font-size: 21px;
+    font-style: italic;
+}
+
+.yb {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zb img {
+    width: 87px;
+    border-radius: 8px;
+}
+
+.yb img {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    cursor: url(img/图标2.avif), auto;
+    background: white;
+}
+
+.hm {
+    font-size: 13px;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 5px;
+    background: white;
+    border-radius: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hm {
+    cursor: url(img/图标2.avif),auto;
+}
+
+#wz {
+    color: rgb(129, 189, 199);
+    cursor: url(img/图标2.avif),auto;
+    text-decoration: underline;
+}
+
+#wzd {
+    color: rgb(129, 189, 199);
+    cursor: url(img/图标2.avif),auto;
+    text-decoration: underline;
+}
+
+#wzf {
+    color: rgb(129, 189, 199);
+    cursor: url(img/图标2.avif),auto;
+    text-decoration: underline;
+}
+
+#wzg {
+    color: rgb(129, 189, 199);
+    cursor: url(img/图标2.avif),auto;
+    text-decoration: underline;
+}
+
+
+#wzs {
+    color: rgb(129, 189, 199);
+    cursor: url(img/图标2.avif),auto;
+    text-decoration: underline;
+}
+
+#bili {
+    cursor: url(img/图标2.avif), auto;
+}
+
+/*contact页结束*/
+
+/*鼠标拖尾特效开始*/
+
+.none {
+    display: none;
+}
+
+.tail_block {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: radial-gradient(transparent, blue);
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+#tail_show .show {
+    animation: tail_show 1s;
+}
+
+@keyframes tail_show {
+    0% {}
+
+    100% {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+/*鼠标拖尾特效结束*/
+
+/*################################################################################################################*/
+
+/*自适应处理*/
+/*1200px*/
+@media only screen and (max-width: 1200px) {
+    #en {
+        display: none;
+    }
+
+    .about_gejj {
+        width: 90%;
+    }
+
+    .jj span {
+        margin-top: 10px;
+        margin-left: 0px;
+        font-size: 7px;
+        line-height: 12px;
+    }
+
+    .gs_bj {
+        width: 90%;
+    }
+
+    .gs_bj span {
+        margin-left: 30px;
+    }
+
+    .games {
+        width: 90%;
+    }
+
+    .wy {
+        margin-left: 20px;
+    }
+}
+
+/*600px*/
+@media only screen and (max-width: 600px) {
+    li {
+        margin-left: 0px;
+    }
+
+    li a {
+        margin-left: 0px;
+        padding: 14px 16px;
+    }
+
+    .jj {
+        width: 50%;
+    }
+
+    .dm {
+        width: 50%;
+    }
+
+    .progress-bar {
+        width: 90%;
+    }
+
+    .cbj {
+        flex-direction: column;
+    }
+
+    .zb {
+        width: 100%;
+    }
+
+    .yb {
+        width: 100%;
+    }
+
+    .zb h1 {
+        font-size: 15px;
+    }
+
+    .zb img {
+        width: 70px;
+    }
+
+    .yb img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .kls h1 {
+        margin-left: 10px;
+    }
+
+    .kls span {
+        width: 90%;
+        height: 50px;
+    }
+
+}

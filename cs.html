@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>提示窗口</title>
+    <style>
+        /* CSS 样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML 结构 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>提示</h2>
+            <p>本网站由[hexo + Github]搭建！</p>
+            <p>由于服务器在国外速度可能有些慢。</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 代码
+        var modal = document.getElementById("myModal");
+        var closeButton = document.getElementsByClassName("close")[0];
+
+        // 当用户点击关闭按钮时，关闭提示窗口
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // 当用户点击其他位置时，关闭提示窗口
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 弹出提示窗口
+        modal.style.display = "block";
+    </script>
+</body>
+</html>

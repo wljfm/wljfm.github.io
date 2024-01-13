@@ -4,1616 +4,322 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/tx.png" type="image/x-icon">
-    <link rel="shortcut icon" href="img/tx.png" type="image/x-icon">
+    <link rel="icon" href="css/img/tx.png" type="image/x-icon">
+    <link rel="shortcut icon" href="css/img/tx.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>无聊加肥猫の个人网站</title>
 </head>
 
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
-
-    body {
-        width: 100%;
-        overflow-y: hidden;
-    }
-
-    /* 弹出窗口样式 */
-    #popup {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        left: -300px;
-        /* 初始位置在左侧屏幕外 */
-        width: 280px;
-        height: 50px;
-        background-color: white;
-        border: 1px solid black;
-        padding: 20px;
-        border-radius: 20px;
-        animation: slideInLeft 0.5s forwards;
-        /* 左滑进入动画 */
-        background: url(img/wl.jpg);
-        background-size: cover;
-    }
-
-    /* 左滑进入动画 */
-    @keyframes slideInLeft {
-        from {
-            left: -300px;
-            /* 动画开始时在左侧屏幕外 */
-        }
-
-        to {
-            left: 20px;
-            /* 动画结束时在左下角 */
-        }
-    }
-
-    /* 左滑离开动画 */
-    @keyframes slideOutLeft {
-        from {
-            left: 20px;
-            /* 动画开始时在左下角 */
-        }
-
-        to {
-            left: -300px;
-            /* 动画结束时在左侧屏幕外 */
-        }
-    }
-
-    #klss {
-        margin-top: -3px;
-        font-size: 20px;
-        font-family: "微软雅黑", sans-serif;
-        font-style: italic;
-    }
-
-    #klse {
-        margin-top: 5px;
-        font-size: 13px;
-        font-family: "微软雅黑", sans-serif;
-        font-style: italic;
-    }
-
-    .sd {
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        /*background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);*/
-    }
-
-    /* 默认背景图 */
-    .sd {
-        background: url(img/alxy.jpg);
-        background-size: cover;
-    }
-
-    /* 当屏幕宽度小于等于600像素时，使用手机背景图 */
-    @media only screen and (max-width: 600px) {
-        .sd {
-            background: url(img/hutao.jpg);
-            background-size: cover;
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
-        #popup {
-            width: 180px;
-            height: 40px;
-        }
-
-        #klss {
-            font-size: 15px;
-        }
-
-        #klse {
-            font-size: 9px;
-        }
-    }
-
-
-
-    .sda {
-        width: 80%;
-        height: 60px;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 10px 30px #00000085;
-        border-radius: 5px;
-        color: #8193b2;
-        background-color: rgb(12, 22, 45);
-        border: 1px solid rgb(70, 80, 92);
-        transition: height 0.7s;
-        /* 高度变化动画 */
-    }
-
-    @media only screen and (max-width: 600px) {
-        .sda {
-            width: 90%;
-        }
-    }
-
-    /* 当屏幕宽度大于600像素时，宽度为600像素 */
-    @media only screen and (min-width: 601px) {
-        .sda {
-            width: 500px;
-        }
-    }
-
-    .sda.fullHeight {
-        height: 80px;
-    }
-
-    .sdaa {
-        padding-left: 20px;
-    }
-
-    /* @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    } */
-
-    @keyframes twinkling {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0.5;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .star {
-        position: absolute;
-        width: 2px;
-        height: 2px;
-        background-color: white;
-        border-radius: 50%;
-        animation: twinkling 1s infinite;
-    }
-
-    .star:nth-child(1) {
-        top: 10%;
-        left: 23%;
-    }
-
-    .star:nth-child(2) {
-        top: 15%;
-        left: 98%;
-    }
-
-    .star:nth-child(3) {
-        top: 30%;
-        left: 30%;
-    }
-
-    .star:nth-child(4) {
-        top: 20%;
-        left: 42%;
-    }
-
-    .star:nth-child(5) {
-        top: 80%;
-        left: 70%;
-    }
-
-    .star:nth-child(6) {
-        top: 42%;
-        left: 3%;
-    }
-
-    .star:nth-child(7) {
-        top: 64%;
-        left: 83%;
-    }
-
-    .star:nth-child(8) {
-        top: 78%;
-        left: 29%;
-    }
-
-    .star:nth-child(9) {
-        top: 54%;
-        left: 62%;
-    }
-
-    .star:nth-child(10) {
-        top: 23%;
-        left: 49%;
-    }
-
-    .star:nth-child(11) {
-        top: 99%;
-        left: 41%;
-    }
-
-    .star:nth-child(12) {
-        top: 6%;
-        left: 77%;
-    }
-
-    .star:nth-child(13) {
-        top: 68%;
-        left: 24%;
-    }
-
-    .star:nth-child(14) {
-        top: 50%;
-        left: 87%;
-    }
-
-    .star:nth-child(15) {
-        top: 26%;
-        left: 59%;
-    }
-
-    .star:nth-child(16) {
-        top: 91%;
-        left: 13%;
-    }
-
-    .star:nth-child(17) {
-        top: 40%;
-        left: 50%;
-    }
-
-    .star:nth-child(18) {
-        top: 60%;
-        left: 30%;
-    }
-
-    .star:nth-child(19) {
-        top: 32%;
-        left: 75%;
-    }
-
-    .star:nth-child(20) {
-        top: 87%;
-        left: 87%;
-    }
-
-    .arrow {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: black;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .arrow.show {
-        opacity: 1;
-    }
-
-    .arrow span {
-        font-size: 12px;
-        animation: blink 4s infinite;
-    }
-
-    @keyframes blink {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    /*界面2*/
-
-    .ad {
-        width: 100%;
-        height: 100vh;
-    }
-
-    .ada {
-        width: 1200px;
-        height: 0px;
-    }
-
-    .tx-bj img {
-        width: 100px;
-        border-radius: 100%;
-        border: 1px solid black;
-        margin-top: 130px;
-    }
-
-    .img1-bj {
-        width: 80%;
-        height: 100%;
-        border-radius: 0px 20px 20px 0px;
-        background: url(img/wl.jpg);
-        background-size: cover;
-    }
-
-    .ad-op {
-        width: 20%;
-        height: 100%;
-        visibility: hidden;
-    }
-
-    .tx-bj {
-        width: 100%;
-        height: 25%;
-        background: url(img/tx-bj.png);
-        background-size: cover;
-        border-radius: 20px 0px 0px 0px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .zx1 {
-        width: 100%;
-        height: 1px;
-        background: #9facb2;
-        margin-top: 60px;
-    }
-
-    .js {
-        width: 100%;
-        height: 100%;
-    }
-
-    .js img {
-        width: 25px;
-        height: 25px;
-        padding: 10px;
-    }
-
-    .jsa {
-        width: 100%;
-        height: 7%;
-        align-items: center;
-        display: flex;
-    }
-
-    .dm-bj {
-        width: 100%;
-        height: 210px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .dm {
-        width: 90%;
-        height: 80%;
-        box-shadow: 0 10px 30px #00000085;
-        background: black;
-        border-radius: 7px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .dma {
-        width: 100%;
-        height: 20%;
-        display: flex;
-        color: white;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .progress-bar {
-        width: 90%;
-    }
-
-    .op {
-        width: 87%;
-    }
-
-    .dma-bj {
-        width: 95%;
-        height: 95%;
-        border-radius: 7px;
-        background: #24292f;
-    }
-
-    @keyframes loadProgress {
-        from {
-            value: 0;
-        }
-
-        to {
-            value: 100;
-        }
-    }
-
-    .progress-bar {
-        animation-name: loadProgress;
-        animation-duration: 2s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-    }
-
-    .wz {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .wz1 {
-        font-size: 40px;
-        font-style: italic;
-    }
-
-    .wz2 {
-        font-style: italic;
-        font-size: 30px;
-    }
-
-    .wz3 {
-        font-style: italic;
-        font-size: 10px;
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-        visibility: hidden;
-    }
-
-    .but {
-        width: 40%;
-        height: 50px;
-        display: flex;
-        padding: 20px;
-        cursor: pointer;
-    }
-
-    .but p {
-        width: 80px;
-        height: 25px;
-        background: #a6aeb346;
-        border-radius: 20px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        font-style: italic;
-        margin: 5px;
-        cursor: pointer;
-    }
-
-    .jm {
-        width: 100%;
-        height: 300px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .gs-bj {
-        width: 100%;
-        height: 30%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .gs {
-        width: 90%;
-        height: 100%;
-        border: 1px solid rgb(70, 80, 92);
-        background: rgba(255, 255, 255, 0.541);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px #00000085;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .yx-nl {
-        width: 100%;
-        height: 200px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-    }
-
-    .yx {
-        width: 44%;
-        height: 90%;
-        border: 1px solid rgb(70, 80, 92);
-        background: rgba(255, 255, 255, 0.541);
-        border-radius: 20px;
-        box-shadow: 0 10px 30px #00000085;
-        margin: 10px;
-    }
-
-    .yx img {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-    }
-
-    .yx p {
-        padding: 5px;
-    }
-
-    .bt {
-        padding: 5px;
-        font-weight: 800;
-        font-size: 15px;
-    }
-
-    .nl {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .qd {
-        width: 50%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .qd-1 {
-        width: 100%;
-        height: 50%;
-        display: flex;
-    }
-
-    .qd-2 {
-        width: 100%;
-        height: 50%;
-        display: flex;
-    }
-
-    @keyframes flipOutY {
-        from {
-            transform: perspective(400px) rotateY(0deg);
-        }
-
-        to {
-            transform: perspective(400px) rotateY(-180deg);
-        }
-    }
-
-    @keyframes flipInY {
-        from {
-            transform: perspective(400px) rotateY(180deg);
-        }
-
-        to {
-            transform: perspective(400px) rotateY(0deg);
-        }
-    }
-
-
-    /*界面设置*/
-    .jm1 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm2 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm3 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm4 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-    .jm5 {
-        width: 95%;
-        height: 280px;
-        display: none;
-        /*默认隐藏*/
-    }
-
-
-    :root {
-        --color-font: #000000;
-        --color-bg-progress-b: #6b6b6b;
-        --color-bg-progress-l: #a0a0a0;
-        --color-bg-progress-m: #ffffff;
-    }
-
-    html {
-        font-size: 0.0625rem;
-        color: var(--color-font);
-    }
-
-    .music-content-bg {
-        visibility: visible;
-    }
-
-    .music-content {
-        height: 280px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .music-box {
-        flex: none;
-        width: 400rem;
-        height: 200rem;
-        border-radius: 30rem;
-        box-sizing: border-box;
-        background-color: rgb(232, 232, 232, 0.7);
-        backdrop-filter: blur(20px);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30rem;
-        box-shadow: inset 0px 0px 10px 2px rgb(255, 255, 255, 0.5);
-        user-select: none;
-    }
-
-    /* music-box 上部分 */
-    .music-box>article {
-        width: 100%;
-        height: 100rem;
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    /* 图片部分 */
-    .m-img-box {
-        flex: none;
-        width: 100rem;
-        height: 100rem;
-        border-radius: 20rem;
-        overflow: hidden;
-        box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.25),
-            0px 0px 8px 0px inset rgba(0, 0, 0, 0.05);
-    }
-
-    .m-img-content {
-        width: 100%;
-        height: 100%;
-        transform: translateY(-100%);
-    }
-
-    .m-img-content.tran {
-        transition: transform 0.4s linear 0.3s;
-    }
-
-    .m-img-content>img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8rem;
-        transform: scale(1);
-    }
-
-    .m-img-content>img.anim {
-        animation: img-anim 1s linear forwards;
-    }
-
-    @keyframes img-anim {
-        30% {
-            transform: scale(0.6);
-        }
-
-        70% {
-            transform: scale(0.6);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    /* 描述部分 */
-    .m-description-content {
-        position: relative;
-        margin-left: 25rem;
-        width: 0;
-        flex: 1;
-    }
-
-    .m-description-content>article {
-        opacity: 1;
-    }
-
-    .m-description-content>article.anim {
-        animation: desc-cont-anim 1s ease-in forwards;
-    }
-
-    @keyframes desc-cont-anim {
-        30% {
-            opacity: 0;
-            transform: var(--transform-translateY);
-        }
-
-        70% {
-            opacity: 0;
-            transform: translateY(0);
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    .m-title {
-        font-size: 18rem;
-        font-weight: 500;
-        height: 30rem;
-        line-height: 30rem;
-    }
-
-    .m-author {
-        font-size: 15rem;
-        font-weight: 400;
-        color: #2f2f2f;
-    }
-
-    .m-title,
-    .m-author {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-
-    .m-btn-box {
-        position: absolute;
-        bottom: 0;
-        width: 180rem;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .m-btn-box>button {
-        background: none;
-        border: none;
-        outline: none;
-        width: 22rem;
-        height: 22rem;
-    }
-
-    .icon {
-        width: 100%;
-        height: 100%;
-        vertical-align: middle;
-        fill: var(--color-font);
-        overflow: hidden;
-    }
-
-    .m-btn-box>button:active>.icon {
-        width: 20rem;
-        height: 20rem;
-    }
-
-    /* music-box 下部分 */
-    .music-box>section {
-        width: 100%;
-        font-size: 16rem;
-        font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 5rem;
-        box-sizing: border-box;
-    }
-
-    .m-progress-bar {
-        width: 200rem;
-        height: 6rem;
-        background-color: var(--color-bg-progress-b);
-        border-radius: 3rem;
-        overflow: hidden;
-    }
-
-    .m-progress-main {
-        float: left;
-        height: 100%;
-        width: 20%;
-        background-color: var(--color-bg-progress-m);
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .m-progress-btn {
-        position: absolute;
-        transform: translateX(50%);
-        width: 12rem;
-        height: 12rem;
-        border-radius: 50%;
-        background-color: var(--color-bg-progress-m);
-        transition: width 0.1s linear, height 0.1s linear;
-    }
-
-    .m-progress-btn:active {
-        width: 14rem;
-        height: 14rem;
-    }
-
-    .m-progress-load {
-        height: 100%;
-        width: 50%;
-        background-color: var(--color-bg-progress-l);
-    }
-
-    .db {
-        width: 100%;
-        height: 200px;
-        background: url(img/txbjpc.jpg);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .db {
-            background: url(img/txbj.jpg);
-            background-size: cover;
-        }
-    }
-
-    .hm {
-        width: 100%;
-        height: 70%;
-        background-color: white;
-    }
-
-    .tx {
-        width: 15%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        margin-left: 20px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .tx {
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-
-    .name {
-        width: 85%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .name h1 {
-        font-size: 30px;
-        font-family: "微软雅黑", sans-serif;
-        font-style: italic;
-    }
-
-    .name p {
-        font-family: "微软雅黑", sans-serif;
-        font-style: italic;
-        color: white;
-    }
-
-    #po {
-        font-size: 15px;
-    }
-
-    #op {
-        display: none;
-    }
-
-    .name button {
-        width: 90px;
-        height: 32px;
-        margin-top: 10px;
-        border-radius: 5px;
-        border: white 2px solid;
-        color: white;
-        font-size: 16px;
-        background-color: rgb(242, 93, 142);
-    }
-
-    @media only screen and (max-width: 600px) {
-        .name h1 {
-            font-size: 19px;
-            margin-left: 10px;
-        }
-
-        .name p {
-            display: none;
-        }
-
-        #op {
-            display: flex;
-            color: white;
-            font-size: 9px;
-            margin-left: 10px;
-        }
-
-        .name button {
-            width: 80px;
-            height: 30px;
-            margin-left: 10px;
-        }
-    }
-
-    .db img {
-        border-radius: 100px;
-        border: white 3px solid;
-    }
-
-    .db img {
-        width: 130px;
-        height: 130px;
-    }
-
-    /* 当屏幕宽度小于等于600像素时，使用手机背景图 */
-    @media only screen and (max-width: 600px) {
-        .db img {
-            width: 100px;
-            height: 100px;
-        }
-    }
-
-    .ad {
-        width: 100%;
-        height: 600vh;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .bilis {
-        width: 80%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 10px 30px #00000085;
-        background: white;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .bilis {
-            width: 100%;
-        }
-    }
-
-    .hm {
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-
-    .myjs {
-        width: 90%;
-        height: 90%;
-        align-items: center;
-        flex-direction: column;
-        display: flex;
-    }
-
-    #grxx {
-        margin-top: -20px;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 300px;
-        box-shadow: 0 10px 30px #00000085;
-        background: white;
-        border-radius: 5px;
-    }
-
-    .grxx {
-        margin-top: 40px;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 300px;
-        box-shadow: 0 10px 30px #00000085;
-        background: white;
-        border-radius: 5px;
-    }
-
-    .xxl {
-        width: 100%;
-        height: 100%;
-        display: flex;
-    }
-
-    .xx {
-        width: 40%;
-        height: 100%;
-        margin-top: 20px;
-        margin-left: 30px;
-    }
-
-    .grxx h1 {
-        font-size: 35px;
-    }
-
-    .xxs {
-        font-size: 13px;
-        margin-top: 10px;
-        margin-left: 15px;
-        line-height: 27px;
-    }
-
-    .sxx {
-        width: 60%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    #iii {
-        font-size: 10px;
-    }
-
-    #mr {
-        width: 400px;
-        height: 220px;
-        background: url(img/alxy.jpg);
-        background-size: cover;
-        border-radius: 10px;
-    }
-
-    #ys {
-        width: 400px;
-        height: 220px;
-        background: url(img/ys.png);
-        background-size: cover;
-        border-radius: 10px;
-    }
-
-    #grxxa {
-        height: 500px;
-    }
-
-
-    @media only screen and (max-width: 600px) {
-        .sxx {
-            display: none;
-        }
-
-        .xx {
-            width: 100%;
-        }
-
-        #bts1 {
-            font-size: 25px;
-        }
-
-        #bts2 {
-            font-size: 25px;
-        }
-
-        .xxs {
-            font-size: 13px;
-            margin-top: 10px;
-            margin-left: 7px;
-            line-height: 25px;
-        }
-
-        #grxx {
-            height: 300px;
-        }
-    }
-
-    #spand {
-        font-size: 12px;
-    }
-
-    #hf {
-        margin-left: 10px;
-    }
-
-    .progress-bar {
-        width: 80%;
-        height: 5px;
-        background-color: #f2f2f2;
-        border-radius: 1px;
-        overflow: hidden;
-        border: rgb(219, 209, 209) 1px solid;
-        margin-top: 6px;
-    }
-
-    .progress {
-        height: 5px;
-        border-radius: 1px;
-        transition: width 0.5s ease-in-out;
-    }
-
-    #xxsss {
-        width: 100%;
-    }
-
-    .xssfg {
-        display: flex;
-        margin-top: 10px;
-        width: 80%;
-        word-wrap: break-word;
-    }
-
-    .videos {
-        width: 225px;
-        height: 315px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        box-shadow: 0 10px 30px #00000085;
-        border-radius: 5px;
-        transition: width 0.3s, height 0.3s;
-        margin: 20px;
-    }
-
-    .videos img {
-        width: 92%;
-        height: 87%;
-    }
-
-    .videos span {
-        margin-top: 5px;
-    }
-
-    .videos:hover {
-        width: 245px;
-        height: 335px;
-        cursor: pointer;
-    }
-
-    #grxxb {
-        height: 130vh;
-    }
-
-    #grxxb .xxl {
-        height: 100%;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .xssfg {
-            flex-direction: column;
-        }
-
-        .videos {
-            width: 100%;
-        }
-
-        #grxxb {
-            height: 210vh;
-        }
-
-    }
-
-    #grxxc {
-        background: url(img/j.png);
-        background-size: cover;
-        border: white 10px solid;
-    }
-
-    #grxxd {
-        background: url(img/q.png);
-        background-size: cover;
-        border: white 10px solid;
-    }
-
-    @media only screen and (max-width: 600px) {
-        #grxxc {
-            background: url(img/j.jpg);
-            background-size: cover;
-        }
-
-        #grxxd {
-            background: url(img/q.jpg);
-            background-size: cover;
-        }
-
-        .ad {
-            height: 900vh;
-        }
-    }
-
-    .jw {
-        width: 100%;
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .zbh {
-        width: 50%;
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .ybh {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .jw img {
-        width: 100px;
-        height: 100px;
-        background: white;
-        border-radius: 100%;
-        border: white 2px solid;
-        margin: 10px;
-    }
-
-    .zbh img {
-        width: 80px;
-        height: 40px;
-        border-radius: 1px;
-    }
-
-    .jw h1 {
-        color: black;
-        font-style: italic;
-        font-size: 18px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .jw {
-            display: flex;
-            flex-direction: column;
-            height: 400px;
-            margin-top: 40px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .zbh {
-            width: 100%;
-        }
-
-        .ybh {
-            width: 100%;
-        }
-
-        #lllk {
-            display: none;
-        }
-    }
-
-    #spans {
-        text-decoration: underline;
-        color: lightseagreen;
-    }
-</style>
-
 <body>
-    <audio src="music/China-P.flac" loop></audio>
-    <div class="sd">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="sda" id="sda">
-            <div class="sdaa">
-                <h3 class="op1">
-                    <span id="text1" style="font-size: 14px;"></span>
-                </h3>
-                <h6 class="op2">
-                    <span id="text2"></span>
-                </h6>
-            </div>
-        </div>
-        <div class="arrow">
-            <span onclick="palyui()" id="spand">点击向下</span>
-            <span onclick="palyui()" id="spand">V</span>
-        </div>
-    </div>
-    <div class="ad" onclick="palyui()">
-        <div class="bilis">
-            <div class="db">
-                <div class="tx">
-                    <img src="img/tx.png">
-                </div>
-                <div class="name">
-                    <h1>无聊加肥猫 |Lv5|</h1>
-                    <p id="po">BiliBili 粉丝:300+ 播放数:8w+ 获赞数:1000+</p>
-                    <p id="op">粉丝:300+ 播放数:8w+</p>
-                    <div class="kleee">
-                        <button onclick="openbili()">关注</button>
-                        <button onclick="palyui()" id="hf">恢复</button>
-                    </div>
-                </div>
-            </div>
-            <div class="hm">
-                <div class="myjs">
-                    <div class="grxx" id="grxx">
-                        <div class="xxl">
-                            <div class="xx">
-                                <h1 id="bts1">个人简介</h1>
-                                <div class="xxs">
-                                    <p>性别: 男</p>
-                                    <p>年龄: --岁</p>
-                                    <p>学科: 理科</p>
-                                    <p>爱好: 科技|编程</p>
-                                    <p>原神: 154875383</p>
-                                    <p> QQ : 3607005435</p>
-                                    <p>邮箱: 3607005435@qq.com</p>
-                                </div>
-                            </div>
-                            <div class="sxx">
-                                <button id="mr"></button>
-                                <h1 id="iii">-崩坏3-</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grxx">
-                        <div class="xxl">
-                            <div class="xx">
-                                <h1 id="bts2">君の能力</h1>
-                                <div class="xxs">
-                                    <span>87% - python</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 87%; background-color: rgb(93, 124, 226);">
-                                        </div>
-                                    </div>
-                                    <span>11% - C/C++</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 11%; background-color: rgb(229, 144, 0);">
-                                        </div>
-                                    </div>
-                                    <span>76% - HTML & CSS & JS</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 76%; background-color: rgb(0, 229, 146);">
-                                        </div>
-                                    </div>
-                                    <span>34% - PR & AE(剪辑)</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 34%; background-color: rgb(0, 191, 229);">
-                                        </div>
-                                    </div>
-                                    <span> 6% - UE4/5(虚幻引擎)</span>
-                                    <div class="progress-bar">
-                                        <div class="progress" style="width: 6%; background-color: rgb(216, 18, 51);">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sxx">
-                                <button id="ys"></button>
-                                <h1 id="iii">-原神-</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grxx" id="grxxc">
-                        <div class="xxl">
-                            <div class="xx">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grxx" id="grxxb">
-                        <div class="xxl">
-                            <div class="xx" id="xxsss">
-                                <h1 id="bts1">现[充]の成分</h1>
-                                <div class="xssfg">
-                                    <div class="videos">
-                                        <img src="imgs/为美好的世界献上爆炎.webp">
-                                        <span>-为美好的世界献上爆炎-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/某科学的超电磁炮.webp">
-                                        <span>-某科学的超电磁炮-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/魔女之旅.webp">
-                                        <span>-魔女之旅-</span>
-                                    </div>
-                                </div>
-                                <div class="xssfg" id="lllk">
-                                    <div class="videos">
-                                        <img src="imgs/葬送的芙莉莲.webp">
-                                        <span>-葬送的芙莉莲-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/境界的彼方.webp">
-                                        <span>-境界的彼方-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/赛马娘.webp">
-                                        <span>-赛马娘-</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grxx" id="grxxd">
-                        <div class="xxl">
-                            <div class="xx">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grxx" id="grxxb">
-                        <div class="xxl">
-                            <div class="xx" id="xxsss">
-                                <h1 id="bts1">[Game]の成分</h1>
-                                <div class="xssfg">
-                                    <div class="videos">
-                                        <img src="imgs/原神.png">
-                                        <span>-原神-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/崩坏三.jpg">
-                                        <span>-崩坏三-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/给他爱.jpg">
-                                        <span>-给他爱5-</span>
-                                    </div>
-                                </div>
-                                <div class="xssfg" id="lllk">
-                                    <div class="videos">
-                                        <img src="imgs/战地五.jpg">
-                                        <span>-战地5-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/微软模拟飞行.jpg">
-                                        <span>-微软模拟飞行2020-</span>
-                                    </div>
-                                    <div class="videos">
-                                        <img src="imgs/我的世界.jpg">
-                                        <span>-我的世界-</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="jw">
-                        <div class="zbh">
-                        <img src="img/ico.png">
-                        <h1>2020 - 2024</h1>
-                        <h1>无聊加肥猫の个人网站</h1>
-                        </div>
-                        <div class="ybh">
-                            <img src="imgs/gitee.png" onclick="opengitee()">
-                            <img src="imgs/github.png" onclick="opengithub()">
-                        </div>
-                    </div>
-                    <div class="qt">
-                        <span id="spans" onclick="openbili()">官方B站账号</span>
-                        <span> & </span>
-                        <span id="spans" onclick="opengitees()">无聊加肥猫-二次元高清图片收集</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--鼠标点击特效-->
+    <div id="ripple-effect"></div>
+
+    <!--顶部导航栏-->
+    <nav>
+        <ul>
+            <li><a href="#home" style="color: aqua;">首页</a><a href="#home" id="en" style="color: aqua;">Home</a></li>
+            <li><a href="#about">关于我</a><a href="#about" id="en">About us</a></li>
+            <li><a href="#xianchong">故事</a><a href="#xianchong" id="en">Story</a></li>
+            <li><a href="#game">游戏|现充</a><a href="#game" id="en">Game</a></li>
+            <li><a href="#contact">联系我</a><a href="#contact" id="en">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!--Home-->
+    <div id="home" class="beijing">
+        <!--设置背景-->
+        <img src="css/img/tx.png" onclick="openbili()">
+        <span id="hanying">H e l l o</span>
+        <span id="jingjv">业精于勤，荒于嬉 行成于思，毁于随</span>
+        <span>Industry expertise in the ground.</span>
+        <span>shortage in the play.line into thinking</span>
+        <span>destroyed with the</span>
     </div>
 
-    <!-- 弹出窗口内容 -->
+    <!--About us-->
+    <div id="about" class="beijing_about">
+        <div class="abouts">
+            <!--个人简介-->
+            <div class="about_gejj">
+                <h1 id="names" onclick="openbili()">无聊加肥猫</h1>
+                <h1 id="urls" onclick="openbili()">https://space.bilibili.com/699823793</h2>
+                    <div class="jjs">
+                        <div class="jj">
+                            <h1>个人简介</h1>
+                            <span>性别：男</span>
+                            <span>年龄：15</span>
+                            <span>学科：理科</span>
+                            <span> QQ ：3607005435</span>
+                            <span>原神UID：154875383</span>
+                            <span>爱好：二次元|科技|编程</span>
+                            <span>邮箱(1)：3607005435@qq.com</span>
+                            <span>邮箱(2)：lll18388618549@163.com</span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="dm">
+                            <h1 id="bts2">君の能力</h1>
+                            <div class="xxs">
+                                <span>87% - python</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 87%; background-color: rgb(93, 124, 226);">
+                                    </div>
+                                </div>
+                                <span>11% - C/C++</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 11%; background-color: rgb(229, 144, 0);">
+                                    </div>
+                                </div>
+                                <span>76% - HTML & CSS & JS</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 76%; background-color: rgb(0, 229, 146);">
+                                    </div>
+                                </div>
+                                <span>34% - PR & AE(剪辑)</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 34%; background-color: rgb(0, 191, 229);">
+                                    </div>
+                                </div>
+                                <span> 6% - UE4/5(虚幻引擎)</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 6%; background-color: rgb(216, 18, 51);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Xianchong-->
+    <div class="beijing_xianchong" id="xianchong">
+        <div class="gs_bj">
+            <h1>我の故事</h1>
+            <span>一个二次元爱好者，热爱编程，游戏和理科</span>
+            <span>对科技发展充满了浓厚的兴趣和热情。梦想是成为【拯救世界】的技术宅！</span>
+            <span>一个24年了，还在看东方的休伯利安舰长，刀客塔，司辰兼B站用户！</span>
+            <span>如果你也是二次元爱好者，喜欢编程，热爱游戏，对理科和科技感兴趣，</span>
+            <span>那么关注我的B站账号将是你的理想去处。无论是交流经验，获取资源，</span>
+            <span>还是发现新的乐趣，这里都是你的舞台。</span>
+            <span>我希望通过这个网站，能够与更多志同道合的朋友们相互交流，分享</span>
+            <span>我们的喜好和见解，共同进步，共同探索二次元、编程、游戏和</span>
+            <span>科技的无限魅力。</span>
+            <span>感谢你的访问！无聊加肥猫 2024/1/13</span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--Game-->
+    <div id="game" class="beijing_game">
+        <div class="games">
+            <h1 id="bts">游戏の成分</h1>
+            <h1>网游</h1>
+            <div class="wy">
+                <span>【原神】</span>
+                <span>【崩坏三】</span>
+                <span>【崩坏·星穹铁道】</span>
+            </div>
+            <h1>Steam Game</h1>
+            <div class="wy">
+                <span>【战舰世界】</span>
+                <span>【坦克世界】</span>
+                <span>【战地五】</span>
+                <span>【CSGO】</span>
+                <span>【绝地求生】</span>
+            </div>
+            <h1>单机 Game</h1>
+            <div class="wy">
+                <span>【给他爱5】</span>
+                <span>【荒野大镖客2】</span>
+                <span>【都市天际线】</span>
+                <span>【微软模拟飞行2020】</span>
+                <span>【我的世界】</span>
+            </div>
+            <h1 id="bts">现充の成分</h1>
+            <div class="wy">
+                <span>【魔女之旅】</span>
+                <span>【某科学的超电磁炮】</span>
+                <span>【鬼灭之刃】</span>
+                <span>【咒术回战】</span>
+                <span>【葬送的芙莉莲】</span>
+            </div>
+            <div class="wy">
+                <span>【魔法禁书目录】</span>
+                <span>【为美好的世界献上爆炎】</span>
+                <span>【境界的彼方】</span>
+                <span>【孤独摇滚】</span>
+                <span>【Charlotte】</span>
+            </div>
+            <div class="wy">
+                <span>【虚构推理】</span>
+                <span>【玉子市场】</span>
+                <span>【刀剑神域】</span>
+                <span>【此花亭奇谭】</span>
+                <span>【物语系列】</span>
+            </div>
+            <span>　</span>
+        </div>
+    </div>
+
+    <!--Contact-->
+    <div id="contact" class="beijing_contact">
+        <div class="sm">
+            <div class="kls">
+                <h1>联系我</h1>
+                <span>　QQ : 3607005435</span>
+                <span id="bili" onclick="openbili()">　B站: 无聊加肥猫</span>
+                <span>　邮箱(1): 3607005435@qq.com</span>
+                <span>　邮箱(2): lll18388618549@163.com</span>
+                <span>　邮箱(3): outlook_975BBECB9034B39F@outlook.com</span>
+            </div>
+        </div>
+        <div class="cbj">
+            <div class="zb" onclick="openme()">
+                <img src="css/img/ico.png" onclick="openme()">
+                <h1 onclick="openme()">2020 - 2024</h1>
+                <h1 onclick="openme()">无聊加肥猫の个人网站</h1>
+            </div>
+            <div class="yb">
+                <img src="css/imgs/gitee.png" onclick="opengitee()">
+                <img src="css/imgs/github.png" onclick="opengithub()">
+            </div>
+        </div>
+        <div class="hm">
+            <div class="klo_1">
+                <a id="wz" onclick="openbili()">官方B站账号</a>
+                <a>&</span>
+                <a id="wzs" onclick="opengitees()">无聊加肥猫二次元高清图片收集</a>
+            </div>
+            <div class="klo_2">
+                <a id="wzd" onclick="opentp()">樱道随机图片</a>
+                <a>&</span>
+                <a id="wzf" onclick="opentw()">拖尾特效</a>
+                <a>&</span>
+                <a id="wzg" onclick="openyh()">樱花特效</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出窗口 -->
     <div id="popup">
         <h3 id="klss">欢迎来到我的网站!</h3>
-        <p id="klse">当前正在播放 [China-P 徐梦圆]</p>
+        <p id="klse">当前正在播放</p>
     </div>
 
-    <audio id="myAudio" src="music/China-P.flac" loop></audio>
+    <!--鼠标拖尾特效-->
+    <div id="tail_show"></div>
 
     <script>
-        function showPopup() {
-            // 获取弹出窗口元素
-            var popup = document.getElementById("popup");
+        //顶部导航栏点击特效
+        var links = document.querySelectorAll('a');
 
-            // 显示弹出窗口
+        links.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                var target = this.getAttribute('href');
+                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+                links.forEach(function (element) {
+                    element.style.color = '';
+                });
+                this.style.color = 'aqua';
+            });
+        });
+
+        //滑出窗口特效
+        function showPopup() {
+            var popup = document.getElementById("popup");
             popup.style.display = "block";
 
-            // 在 2 秒钟后隐藏弹出窗口
             setTimeout(function () {
-                popup.style.animation = "slideOutLeft 0.5s forwards"; // 左滑离开动画
+                popup.style.animation = "slideOutLeft 0.5s forwards";
                 setTimeout(function () {
                     popup.style.display = "none";
-                    popup.style.animation = ""; // 清除动画属性
-                }, 500); // 等待 0.5s 后隐藏弹出窗口
-            }, 2000);
+                    popup.style.animation = "";
+                }, 20000);
+            }, 20000);
         }
 
-        function palyui() {
-            setTimeout(function () {
-                document.body.style.overflowY = 'visible';
-                var sdElements = document.querySelectorAll('.sd');
-                for (var i = 0; i < sdElements.length; i++) {
-                    sdElements[i].style.display = 'none';
-                }
-            }, 500);
-        }
+        //鼠标点击特效
+        document.addEventListener('DOMContentLoaded', function () {
+            const rippleEffect = document.getElementById('ripple-effect');
 
-
-        var audio = document.getElementById("myAudio");
-        var i = 0;
-
-        document.addEventListener("click", function () {
-            i += 1;
-            audio.play();
-            if (i === 1) {
+            document.body.addEventListener('click', function (e) {
+                const x = e.pageX - 10;
+                const y = e.pageY - 10;
+                rippleEffect.style.left = x + 'px';
+                rippleEffect.style.top = y + 'px';
+                rippleEffect.style.opacity = '1';
+                rippleEffect.style.transform = 'scale(1)';
                 setTimeout(function () {
-                    showPopup()
-                }, 2000);
+                    rippleEffect.style.opacity = '0';
+                    rippleEffect.style.transform = 'scale(0)';
+                }, 100);
+            });
+        });
+
+        //播放音乐
+        let playlist = [
+            'music/China-C.flac',
+            'music/China-A.flac',
+            'music/China-E.flac',
+            'music/China-P.flac',
+            'music/China-X.flac',
+        ];
+        let currentIndex = 0;
+
+        function playNext() {
+            if (currentIndex >= playlist.length) {
+                return; // 播放完毕，不再继续
+            }
+
+            let audio = new Audio(playlist[currentIndex]);
+            audio.addEventListener('ended', function () {
+                currentIndex++;
+                playNext(); // 递归调用播放下一首
+            });
+            var filePath = playlist[currentIndex];
+            var fileName = filePath.split('/').pop();
+
+            console.log('正在播放音乐：' + fileName);
+            var element = document.getElementById("klse");
+            element.textContent = "正在播放 [徐梦圆 - " + fileName + "]";
+            showPopup()
+            audio.play();
+        }
+
+        var is = 0;
+
+        document.addEventListener('click', function () {
+            is += 1;
+            console.log('用户点击了(' + i + ')次界面');
+            if (is === 1) {
+                console.log('开始播放音乐')
+                playNext();
             }
         });
 
+        //鼠标拖尾特效
+        var s = "", tail_sum = 200, tail_num = 0;
+        for (var i = 0; i < tail_sum; i += 1) {
+            s += ('<div class="tail_block none" id="tail_block_' + i + '"></div>');
+        }
+        document.getElementById("tail_show").innerHTML = s;
+        document.onmousemove = function (event) {
+            setTimeout(function () {
+                var t = document.getElementById("tail_block_" + tail_num);
+                t.className = "tail_block show";
+                t.style.top = event.clientY + 20 + 'px';
+                t.style.left = event.clientX + 20 + 'px';
+                setTimeout(function () { t.className = "tail_block none"; }, 100);
+                tail_num = (tail_num + 1) % tail_sum;
+            }, 10);
+        }
+
+        //打开外部网站
         function openbili() {
             var url = "https://space.bilibili.com/699823793"
             window.open(url, '_blank')
@@ -1634,8 +340,27 @@
             window.open(url, '_blank')
         }
 
-    </script>
+        function openme() {
+            var url = "https://wljfm.github.io"
+            window.open(url, '_blank')
+        }
 
+        function opentp() {
+            var url = "https://img.r10086.com/"
+            window.open(url, '_blank')
+        }
+
+        function opentw() {
+            var url = "https://www.bilibili.com/video/BV1Cr4y1E7xK"
+            window.open(url, '_blank')
+        }
+
+        function openyh() {
+            var url = "https://www.bilibili.com/video/BV1Ey4y147BC"
+            window.open(url, '_blank')
+        }
+
+    </script>
 
     <script src="js/iconfont.js"></script>
     <script src="js/index.js"></script>
