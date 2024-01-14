@@ -216,7 +216,7 @@
 
     <!-- 弹出窗口 -->
     <div id="popup">
-        <h3 id="klss">欢迎来到我的网站!</h3>
+        <h3 id="klss">音乐播放器</h3>
         <p id="klse">当前正在播放</p>
         <p>音频可能缓存较慢！</p>
     </div>
@@ -309,17 +309,23 @@
         // 输出音乐缓存信息
         var audioList = [];
         var currentIndex = 0;
+        var yps = 0;
 
         function cacheAndPlay(audioUrl) {
+            yps += 1;
+            if (yps === 1) {
+                console.log('开始缓存音频');
+            }
             var audio = new Audio(audioUrl);
             audio.preload = 'auto'; // 自动缓存音频
+            console.log("开始缓存：" + audioUrl);
             audio.addEventListener('canplaythrough', function () {
                 console.log("已缓存：" + audioUrl);
                 audioList.push(audio);
 
                 if (audioList.length === 1) {
                     console.log('第一首音频已缓存，开始播放...');
-                    playNext();
+                    playNext(audioUrl);
                 } else if (audioList.length === playlist.length) {
                     console.log('所有音频均已缓存...');
                 }
@@ -340,32 +346,17 @@
         });
 
         // 播放音乐
-        var ooo = 0;
 
-        function playNext() {
-            ooo += 1;
-            if (ooo === 1) {
-                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-C]";
-            } else if (ooo === 2) {
-                document.getElementById("klse").innerHTML = "正在播放 [《崩坏3》印象曲 Moon Halo]";
-            } else if (ooo === 3) {
-                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-A]";
-            } else if (ooo === 4) {
-                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-X]";
-            } else if (ooo === 5) {
-                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-E]";
-            } else if (ooo === 6) {
-                document.getElementById("klse").innerHTML = "正在播放 [《崩坏3》印象曲 Da Capo]";
-            }
-
+        function playNext(audioUrl) {
             if (currentIndex >= playlist.length) {
                 return; // 播放完毕，不再继续
             }
 
             let audio = audioList[currentIndex];
-            var fileName = playlist[currentIndex].split('/').pop();
+            var fileName = audioUrl.split('/').pop().split('.').slice(0, -1).join('.')
 
             console.log('正在播放音乐：' + fileName);
+            document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
             var element = document.getElementById("klse");
             console.log('音频返回正常...');
             showPopup();
