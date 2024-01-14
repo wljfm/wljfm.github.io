@@ -21,11 +21,13 @@
         <div class="dropdown">
             <button class="dropbtn">菜单</button>
             <div class="dropdown-content">
-              <a href="#">待开发</a>
-              <a href="#">待开发</a>
-              <a href="#">待开发</a>
+                <a href="#" onclick="openwindow()">站长的话</a>
+                <a href="#">待开发</a>
+                <a href="#">待开发</a>
+                <a href="#">待开发</a>
+                <a href="#">待开发</a>
             </div>
-          </div>
+        </div>
         <ul>
             <li><a href="#home" style="color: aqua;">首</a><a href="#home" id="en" style="color: aqua;">Home</a></li>
             <li><a href="#about">我</a><a href="#about" id="en">About us</a></li>
@@ -57,7 +59,7 @@
                         <div class="jj">
                             <h1>个人简介</h1>
                             <span>性别：男</span>
-                            <span>年龄：15</span>
+                            <span>年龄：16</span>
                             <span>学科：理科</span>
                             <span> QQ ：3607005435</span>
                             <span>原神UID：154875383</span>
@@ -221,17 +223,29 @@
     <!--鼠标拖尾特效-->
     <div id="tail_show"></div>
 
-    <!--预加载音频-->
-    <audio src="music/China-c.flac" preload="auto"></audio>
-    <audio src="music/China-A.flac" preload="auto"></audio>
-    <audio src="music/China-E.flac" preload="auto"></audio>
-    <audio src="music/China-P.flac" preload="auto"></audio>
-    <audio src="music/China-X.flac" preload="auto"></audio>
-
     <!--预加载鼠标指针-->
     <img src="css/img/图标1.avif" style="display: none;">
     <img src="css/img/图标2.avif" style="display: none;">
 
+    <!--站长留言弹窗-->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>站长留言</h1>
+            <p>　</p>
+            <p>-站长留言-</p>
+            <p>本站由[Github + hexo]搭建，由于网站服务器位于国外，部分时间可能出现无法访问或访问较慢问题请见谅。</p>
+            <p>　</p>
+            <p>-关于本站的开源-</p>
+            <p>本站源代码完全开源，Github、Gitee均可下载</p>
+            <p>Github：https://github.com/wljfm/wljfm.github.io</p>
+            <p>Gitee：https://gitee.com/BILIWLJFM/website</p>
+            <p>　</p>
+            <p>-关于软件下载-</p>
+            <p>本站不定时更新，站长自制软件！</p>
+            <p>　</p>
+        </div>
+    </div>
 
     <script>
         //顶部导航栏点击特效
@@ -283,15 +297,32 @@
 
         //播放音乐
         let playlist = [
-            'music/China-C.flac',
-            'music/China-A.flac',
-            'music/China-E.flac',
-            'music/China-P.flac',
-            'music/China-X.flac',
+            'http://m10.music.126.net/20240114123349/69e0ffd667786e80cf128455fcf8a159/ymusic/14ea/7fd8/8d5d/5d775ee1843adab9c9795dee665696aa.mp3',
+            'https://cg-sycdn.kuwo.cn/ccb8539b274c47e62ebcdc4e804862c9/65a34f0f/resource/n3/60/63/483371381.mp3',
+            'http://m10.music.126.net/20240114123538/8c2ec7b7a61e30636a579e8cb2b2d2f9/ymusic/5446/7d73/7c8b/618619241af0b1e2b5839ab477fb9d37.mp3',
+            'https://eq-sycdn.kuwo.cn/ad70618e8870ed6466325474247f2dbf/65a35e36/resource/n2/60/76/2212019226.mp3',
+            'https://sp-sycdn.kuwo.cn/90609cabd1af72e3d2ae74df681053c5/65a34c14/resource/n3/32/13/2114353064.mp3',
+            'https://lp-sycdn.kuwo.cn/3c9a3d471c7259b5fa78d5e73ad6b897/65a3604b/resource/n3/85/10/919587951.mp3',
         ];
         let currentIndex = 0;
+        var ooo = 0;
 
         function playNext() {
+            ooo += 1;
+            if (ooo === 1) {
+                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-C]";
+            } else if (ooo === 2) {
+                document.getElementById("klse").innerHTML = "正在播放 [《崩坏3》印象曲 Moon Halo]";
+            } else if (ooo === 3) {
+                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-A]";
+            } else if (ooo === 4) {
+                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-X]";
+            } else if (ooo === 5) {
+                document.getElementById("klse").innerHTML = "正在播放 [徐梦圆 China-E]";
+            } else if (ooo === 6) {
+                document.getElementById("klse").innerHTML = "正在播放 [《崩坏3》印象曲 Regression]";
+            }
+
             if (currentIndex >= playlist.length) {
                 return; // 播放完毕，不再继续
             }
@@ -306,7 +337,6 @@
 
             console.log('正在播放音乐：' + fileName);
             var element = document.getElementById("klse");
-            element.textContent = "正在播放 [徐梦圆 - " + fileName + "]";
             showPopup()
             audio.play();
         }
@@ -322,13 +352,15 @@
             }
         });
 
-        //鼠标拖尾特效
+        // 鼠标拖尾特效
         var s = "", tail_sum = 200, tail_num = 0;
         for (var i = 0; i < tail_sum; i += 1) {
-            s += ('<div class="tail_block none" id="tail_block_' + i + '"></div>');
+            var randomColor = Math.floor(Math.random() * 16777215).toString(16); // 生成随机颜色代码
+            s += ('<div class="tail_block none" id="tail_block_' + i + '" style="background-image: radial-gradient(transparent, #' + randomColor + ');"></div>');
         }
         document.getElementById("tail_show").innerHTML = s;
-        document.onmousemove = function (event) {
+
+        document.addEventListener('mousemove', function (event) {
             setTimeout(function () {
                 var t = document.getElementById("tail_block_" + tail_num);
                 t.className = "tail_block show";
@@ -337,6 +369,87 @@
                 setTimeout(function () { t.className = "tail_block none"; }, 100);
                 tail_num = (tail_num + 1) % tail_sum;
             }, 10);
+        });
+
+        // 鼠标长按特效
+        var s_new = "", tail_sum_new = 200, tail_num_new = 0;
+        for (var i_new = 0; i_new < tail_sum_new; i_new += 1) {
+            var randomColor = Math.floor(Math.random() * 16777215).toString(16); // 生成随机颜色代码
+            s_new += ('<div class="tail_block none" id="tail_block_' + i_new + '" style="background-image: radial-gradient(transparent, #' + randomColor + ');"></div>');
+        }
+        document.getElementById("tail_show").innerHTML = s_new;
+
+        let intervalId_new;
+        let isLongPress_new = false;
+
+        document.addEventListener('mousemove', function (event) {
+            if (isLongPress_new) {
+                setTimeout(function () {
+                    var t_new = document.getElementById("tail_block_" + tail_num_new);
+                    t_new.className = "tail_block show";
+                    t_new.style.top = event.clientY + 20 + 'px';
+                    t_new.style.left = event.clientX + 20 + 'px';
+                    setTimeout(function () { t_new.className = "tail_block none"; }, 100);
+                    tail_num_new = (tail_num_new + 1) % tail_sum_new;
+                }, 10);
+            }
+        });
+
+        document.addEventListener('mousedown', function (event) {
+            intervalId_new = setInterval(function () {
+                isLongPress_new = true;
+            }, 100);
+        });
+
+        document.addEventListener('mouseup', function (event) {
+            clearInterval(intervalId_new);
+            isLongPress_new = false;
+        });
+
+        // 触摸长按特效
+        document.addEventListener('touchmove', function (event) {
+            event.preventDefault(); // 阻止默认行为，避免页面滚动
+            if (isLongPress_new) {
+                setTimeout(function () {
+                    var touch = event.touches[0];
+                    var t_new = document.getElementById("tail_block_" + tail_num_new);
+                    t_new.className = "tail_block show";
+                    t_new.style.top = touch.clientY + 20 + 'px';
+                    t_new.style.left = touch.clientX + 20 + 'px';
+                    setTimeout(function () { t_new.className = "tail_block none"; }, 100);
+                    tail_num_new = (tail_num_new + 1) % tail_sum_new;
+                }, 10);
+            }
+        });
+
+        document.addEventListener('touchstart', function (event) {
+            event.preventDefault(); // 阻止默认行为，避免页面滚动
+            intervalId_new = setInterval(function () {
+                isLongPress_new = true;
+            }, 100);
+        });
+
+        document.addEventListener('touchend', function (event) {
+            clearInterval(intervalId_new);
+            isLongPress_new = false;
+        });
+
+
+        //弹窗
+        function openwindow() {
+            var modal = document.getElementById("myModal");
+            var closeButton = document.getElementsByClassName("close")[0];
+
+            closeButton.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            modal.style.display = "block";
         }
 
         //打开外部网站

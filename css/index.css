@@ -504,7 +504,7 @@ li:hover {
 
 /*contact页结束*/
 
-/*鼠标拖尾特效开始*/
+/*屏幕特效开始*/
 
 .none {
     display: none;
@@ -532,7 +532,7 @@ li:hover {
     }
 }
 
-/*鼠标拖尾特效结束*/
+/*屏幕特效结束*/
 
 /*下拉菜单开始*/
 
@@ -581,6 +581,44 @@ li:hover {
 
 /*下拉菜单结束*/
 
+/*弹窗开始*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*弹窗结束*/
+
 /*################################################################################################################*/
 
 /*自适应处理*/
@@ -615,6 +653,10 @@ li:hover {
 
     .wy {
         margin-left: 20px;
+    }
+
+    .modal-content {
+        width: 90%
     }
 }
 
