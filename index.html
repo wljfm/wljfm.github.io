@@ -296,6 +296,24 @@
             });
         });
 
+        //判断是否播放音频
+        var tu = 1;
+        function checkAudioPlaying(audioUrl) {
+            if (tu === 1) {
+                for (var i = 0; i < audioList.length; i++) {
+                    var audio = audioList[i];
+                    if (!audio.paused) {
+                        console.log('音频正在播放');
+                        tu += 1;
+                        return true;
+                    }
+                }
+                console.log('音频未播放，重启播放器！');
+                playNext(audioUrl)
+                return false;
+            }
+        }
+
         // 定义音频列表
         let playlist = [
             'music/China-C.mp3',
@@ -326,6 +344,7 @@
                 if (audioList.length === 1) {
                     console.log('第一首音频已缓存，开始播放...');
                     playNext(audioUrl);
+                    setInterval(checkAudioPlaying(audioUrl), 1000); // 每秒检测一次是否有音频正在播放
                 } else if (audioList.length === playlist.length) {
                     console.log('所有音频均已缓存...');
                 }
