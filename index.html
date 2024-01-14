@@ -21,7 +21,7 @@
         <div class="dropdown">
             <button class="dropbtn">菜单</button>
             <div class="dropdown-content">
-                <a href="#" onclick="openwindow()">站长的话</a>
+                <a href="#" onclick="openwindow()">站长留言</a>
                 <a href="#">待开发</a>
                 <a href="#">待开发</a>
                 <a href="#">待开发</a>
@@ -317,9 +317,18 @@
                 console.log("已缓存：" + audioUrl);
                 audioList.push(audio);
 
-                if (audioList.length === playlist.length) {
+                if (audioList.length === 1) {
+                    console.log('第一首音频已缓存，开始播放...');
+                    playNext();
+                } else if (audioList.length === playlist.length) {
                     console.log('所有音频均已缓存...');
-                    playNext(); // 所有音频缓存完毕后开始播放
+                }
+            });
+
+            audio.addEventListener('progress', function (event) {
+                if (event.lengthComputable) {
+                    var loadedPercent = (event.loaded / event.total) * 100;
+                    console.log(audioUrl + " 已加载：" + loadedPercent.toFixed(2) + "%");
                 }
             });
 
@@ -358,12 +367,13 @@
 
             console.log('正在播放音乐：' + fileName);
             var element = document.getElementById("klse");
-            console.log('音乐返回正常...')
-            showPopup()
+            console.log('音频返回正常...');
+            showPopup();
             audio.play();
 
             currentIndex++;
         }
+
 
         /*
         var is = 0;
