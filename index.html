@@ -218,6 +218,7 @@
     <div id="popup">
         <h3 id="klss">欢迎来到我的网站!</h3>
         <p id="klse">当前正在播放</p>
+        <p>音频可能缓存较慢！</p>
     </div>
 
     <!--鼠标拖尾特效-->
@@ -295,7 +296,7 @@
             });
         });
 
-        //播放音乐
+        // 定义音频列表
         let playlist = [
             'music/China-C.mp3',
             'music/Moon Halo.mp3',
@@ -304,7 +305,32 @@
             'music/China-E.mp3',
             'music/Da Capo.mp3',
         ];
-        let currentIndex = 0;
+
+        // 输出音乐缓存信息
+        var audioList = [];
+        var currentIndex = 0;
+
+        function cacheAndPlay(audioUrl) {
+            var audio = new Audio(audioUrl);
+            audio.preload = 'auto'; // 自动缓存音频
+            audio.addEventListener('canplaythrough', function () {
+                console.log("已缓存：" + audioUrl);
+                audioList.push(audio);
+
+                if (audioList.length === playlist.length) {
+                    console.log('所有音频均已缓存...');
+                    playNext(); // 所有音频缓存完毕后开始播放
+                }
+            });
+
+            audio.load(); // 开始缓存音频
+        }
+
+        playlist.forEach(function (audioUrl) {
+            cacheAndPlay(audioUrl);
+        });
+
+        // 播放音乐
         var ooo = 0;
 
         function playNext() {
@@ -327,22 +353,20 @@
                 return; // 播放完毕，不再继续
             }
 
-            let audio = new Audio(playlist[currentIndex]);
-            audio.addEventListener('ended', function () {
-                currentIndex++;
-                playNext(); // 递归调用播放下一首
-            });
-            var filePath = playlist[currentIndex];
-            var fileName = filePath.split('/').pop();
+            let audio = audioList[currentIndex];
+            var fileName = playlist[currentIndex].split('/').pop();
 
             console.log('正在播放音乐：' + fileName);
             var element = document.getElementById("klse");
+            console.log('音乐返回正常...')
             showPopup()
             audio.play();
+
+            currentIndex++;
         }
 
+        /*
         var is = 0;
-
         document.addEventListener('click', function () {
             is += 1;
             console.log('用户点击了(' + is + ')次界面');
@@ -351,6 +375,8 @@
                 playNext();
             }
         });
+        */
+
 
         // 鼠标拖尾特效
         var s = "", tail_sum = 200, tail_num = 0;

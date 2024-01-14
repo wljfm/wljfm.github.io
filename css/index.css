@@ -62,6 +62,10 @@ body {
     background-size: cover;
 }
 
+#popup h3 {
+    margin-top: -7px;
+}
+
 /* 左滑进入动画 */
 @keyframes slideInLeft {
     from {
