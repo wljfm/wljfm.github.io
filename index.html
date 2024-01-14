@@ -296,23 +296,33 @@
             });
         });
 
+        //服了改了TM的2天的bug了，服了这个播放器了
+        //(￣へ￣) 2024/1/15
         //判断是否播放音频
-        var tu = 1;
+        var tu = 0;
+        var is = 0;
+
         function checkAudioPlaying(audioUrl) {
-            if (tu === 1) {
+            setTimeout(function () {
+                tu += 1;
                 for (var i = 0; i < audioList.length; i++) {
                     var audio = audioList[i];
                     if (!audio.paused) {
                         console.log('音频正在播放');
-                        tu += 1;
+                        is === 2;
                         return true;
                     }
                 }
-                console.log('音频未播放，重启播放器！');
-                playNext(audioUrl)
+                console.log('警告(' + tu + ')音频未播放，重启播放器！');
+                console.log('警告(' + tu + ')浏览器可能禁止播放器自动播放！')
+                console.log('已启动手动点击播放')
+                is === 1;
+                checkAudioPlaying(audioUrl);
+                playNext(audioUrl);
                 return false;
-            }
+            }, 3000)
         }
+
 
         // 定义音频列表
         let playlist = [
@@ -344,7 +354,7 @@
                 if (audioList.length === 1) {
                     console.log('第一首音频已缓存，开始播放...');
                     playNext(audioUrl);
-                    setInterval(checkAudioPlaying(audioUrl), 1000); // 每秒检测一次是否有音频正在播放
+                    checkAudioPlaying(audioUrl);// 检测是否有音频正在播放
                 } else if (audioList.length === playlist.length) {
                     console.log('所有音频均已缓存...');
                 }
@@ -377,25 +387,21 @@
             console.log('正在播放音乐：' + fileName);
             document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
             var element = document.getElementById("klse");
-            console.log('音频返回正常...');
+            console.log('播放器已启动...');
             showPopup();
             audio.play();
 
             currentIndex++;
         }
 
-
-        /*
-        var is = 0;
+        //检测屏幕点击
         document.addEventListener('click', function () {
-            is += 1;
-            console.log('用户点击了(' + is + ')次界面');
             if (is === 1) {
                 console.log('开始播放音乐')
                 playNext();
             }
         });
-        */
+
 
 
         // 鼠标拖尾特效
