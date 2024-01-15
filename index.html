@@ -249,6 +249,9 @@
     </div>
 
     <script>
+        //提示
+        alert('本站是有背景音乐的，但是...可能会加载加载较慢...因为服务器在国外，所以请见谅。')
+
         //顶部导航栏点击特效
         var links = document.querySelectorAll('a');
 
@@ -380,17 +383,22 @@
             if (currentIndex >= playlist.length) {
                 return; // 播放完毕，不再继续
             }
-
+        
             let audio = audioList[currentIndex];
             var fileName = audioUrl.split('/').pop().split('.').slice(0, -1).join('.')
-
+        
             console.log('正在播放音乐：' + fileName);
             document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
             var element = document.getElementById("klse");
             console.log('播放器已启动...');
             showPopup();
+        
+            audio.onended = function() {
+                currentIndex++;
+                playNext(playlist[currentIndex]);
+            };
+        
             audio.play();
-
             currentIndex++;
         }
 
