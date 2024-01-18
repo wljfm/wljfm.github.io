@@ -24,7 +24,7 @@
             <div class="dropdown-content">
                 <a onclick="openwindow()">站长留言</a>
                 <a onclick="showPopup()">音乐</a>
-                <a href="https://wljfm.github.io/webs/v1/index.html">导航搜索页</a>
+                <a onclick="opendh()">导航搜索页</a>
                 <a href="#">待开发</a>
                 <a href="#">待开发</a>
             </div>
@@ -669,6 +669,11 @@
 
         function openyh() {
             var url = "https://www.bilibili.com/video/BV1Ey4y147BC"
+            window.open(url, '_blank')
+        }
+
+        function opendh() {
+            var url = "https://wljfm.github.io/webs/v1/index.html"
             window.open(url, '_blank')
         }
 
