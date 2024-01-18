@@ -295,6 +295,38 @@ li:hover {
     transition: width 0.5s ease-in-out;
 }
 
+#progressBar {
+    width: 95%;
+    height: 10px;
+    border: none;
+    border-radius: 1px;
+    transition: width 0.5s ease-in-out;
+    margin: 10px;
+}
+
+.jdt {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.zx {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup img {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+
+#klse {
+    margin-top: -4px;
+}
 
 /*About us页结束*/
 

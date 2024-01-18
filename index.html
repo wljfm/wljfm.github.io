@@ -21,9 +21,9 @@
         <div class="dropdown">
             <button class="dropbtn">菜单</button>
             <div class="dropdown-content">
-                <a href="#" onclick="openwindow()">站长留言</a>
-                <a href="#">待开发</a>
-                <a href="#">待开发</a>
+                <a onclick="openwindow()">站长留言</a>
+                <a onclick="showPopup()">音乐</a>
+                <a href="https://wljfm.github.io/webs/v1/index.html">导航搜索页</a>
                 <a href="#">待开发</a>
                 <a href="#">待开发</a>
             </div>
@@ -214,13 +214,6 @@
         </div>
     </div>
 
-    <!-- 弹出窗口 -->
-    <div id="popup">
-        <h3 id="klss">音乐播放器</h3>
-        <p id="klse">当前正在播放</p>
-        <p>音频可能缓存较慢！</p>
-    </div>
-
     <!--鼠标拖尾特效-->
     <div id="tail_show"></div>
 
@@ -248,6 +241,25 @@
         </div>
     </div>
 
+    <!-- 弹出窗口 -->
+    <div id="popup">
+        <p id="klse">[播放器]当前正在播放</p>
+        <div class="jdt">
+            <p id="currentTime">00:00</p>
+            <input type="range" id="progressBar" min="0" max="100" value="0" step="1" oninput="seek(event)">
+        </div>
+        <div class="zx">
+            <!--上一首-->
+            <img src="css/img/mz.png" id="mzs" onclick="playPrev()">
+            <!--暂停-->
+            <img src="css/img/zt.png" id="zts" style="display: flex;" onclick="pauseAudio()">
+            <!--播放-->
+            <img src="css/img/my.png" id="bfs" style="display: none;" onclick="playAudio()">
+            <!--下一首-->
+            <img src="css/img/my.png" id="mys" onclick="playNext()">
+        </div>
+    </div>
+
     <script>
         //提示
         alert('本站是有背景音乐的，但是...可能会加载加载较慢...因为服务器在国外，所以请见谅。')
@@ -258,12 +270,12 @@
         links.forEach(function (link) {
             link.addEventListener('click', function (event) {
                 event.preventDefault();
-                var target = this.getAttribute('href');
-                document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-                links.forEach(function (element) {
-                    element.style.color = '';
-                });
-                this.style.color = 'aqua';
+                //var targetId = this.getAttribute('href').substring(1);
+                //document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                //links.forEach(function (element) {
+                //    element.style.color = '';
+                //});
+                //this.style.color = 'aqua';
             });
         });
 
@@ -304,6 +316,8 @@
         //判断是否播放音频
         var tu = 0;
         var is = 0;
+        var currentAudio = null;
+        var progressInterval = null;
 
         function checkAudioPlaying(audioUrl) {
             setTimeout(function () {
@@ -326,7 +340,6 @@
             }, 3000)
         }
 
-
         // 定义音频列表
         let playlist = [
             'music/China-C.mp3',
@@ -341,6 +354,7 @@
         var audioList = [];
         var currentIndex = 0;
         var yps = 0;
+        var iiiu = 0;
 
         function cacheAndPlay(audioUrl) {
             yps += 1;
@@ -357,7 +371,7 @@
                 if (audioList.length === 1) {
                     console.log('第一首音频已缓存，开始播放...');
                     playNext(audioUrl);
-                    checkAudioPlaying(audioUrl);// 检测是否有音频正在播放
+                    checkAudioPlaying(audioUrl); // 检测是否有音频正在播放
                 } else if (audioList.length === playlist.length) {
                     console.log('所有音频均已缓存...');
                 }
@@ -378,38 +392,142 @@
         });
 
         // 播放音乐
+        var iiiy = 0;
 
-        function playNext(audioUrl) {
+        function playNext() {
+            if (currentAudio) {
+                pauseAudio();
+                clearInterval(progressInterval);
+            }
+
             if (currentIndex >= playlist.length) {
                 return; // 播放完毕，不再继续
             }
-        
+
+            iiiy += 1;
+
             let audio = audioList[currentIndex];
-            var fileName = audioUrl.split('/').pop().split('.').slice(0, -1).join('.')
-        
+            var fileName = audioList[currentIndex].split('/').pop().split('.').slice(0, -1).join('.')
+
             console.log('正在播放音乐：' + fileName);
             document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
             var element = document.getElementById("klse");
             console.log('播放器已启动...');
             showPopup();
-        
-            audio.onended = function() {
+
+            // 更新当前播放时长和进度条
+            var currentTimeElement = document.getElementById("currentTime");
+            var progressBar = document.getElementById("progressBar");
+            progressInterval = setInterval(function () {
+                currentTimeElement.textContent = formatTime(audio.currentTime);
+                var progressWidth = (audio.currentTime / audio.duration) * 100;
+                progressBar.value = progressWidth;
+            }, 1000);
+
+            audio.onended = function () {
                 currentIndex++;
                 playNext(playlist[currentIndex]);
             };
-        
+
             audio.play();
             currentIndex++;
+            document.getElementById("zts").style.display = "flex";
+            document.getElementById("bfs").style.display = "none";
         }
 
-        //检测屏幕点击
+        // 格式化时间为 mm:ss 的形式
+        function formatTime(time) {
+            var minutes = Math.floor(time / 60);
+            var seconds = Math.floor(time % 60);
+            return (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        }
+
+        // 拖动进度条控制播放位置
+        function seek(event) {
+            var progressBar = document.getElementById("progressBar");
+            var audio = audioList[currentIndex - 1];
+            var seekTime = (event.target.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+            progressBar.value = event.target.value;
+        }
+
+        // 暂停音乐
+        function pauseAudio() {
+            let audio = audioList[currentIndex - 1];
+            audio.pause();
+            clearInterval(progressInterval);
+            document.getElementById("zts").style.display = "none";
+            document.getElementById("bfs").style.display = "flex";
+        }
+
+        // 继续播放音乐
+        function playAudio() {
+            let audio = audioList[currentIndex - 1];
+            audio.play();
+            document.getElementById("zts").style.display = "flex";
+            document.getElementById("bfs").style.display = "none";
+        }
+
+        // 播放上一首音乐
+        function playPrev() {
+            pauseAudio()
+            currentIndex -= 2;
+            if (currentIndex < 0) {
+                currentIndex = playlist.length - 1;
+            }
+            let audio = audioList[currentIndex];
+            audio.currentTime = 0; // 从头开始播放
+            playNext(playlist[currentIndex]);
+        }
+
+        // 播放下一首音乐
+        function playNext() {
+            if (iiiy >= 1) {
+                pauseAudio()
+            }
+            if (currentIndex >= playlist.length) {
+                return; // 播放完毕，不再继续
+            }
+
+            iiiy += 1;
+
+            let audio = audioList[currentIndex];
+            var fileName = playlist[currentIndex].split('/').pop().split('.').slice(0, -1).join('.')
+
+
+            console.log('正在播放音乐：' + fileName);
+            document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
+            var element = document.getElementById("klse");
+            console.log('播放器已启动...');
+            showPopup();
+
+            // 更新当前播放时长和进度条
+            var currentTimeElement = document.getElementById("currentTime");
+            var progressBar = document.getElementById("progressBar");
+            progressInterval = setInterval(function () {
+                currentTimeElement.textContent = formatTime(audio.currentTime);
+                var progressWidth = (audio.currentTime / audio.duration) * 100;
+                progressBar.value = progressWidth;
+            }, 1000);
+
+            audio.onended = function () {
+                currentIndex++;
+                playNext(playlist[currentIndex]);
+            };
+
+            audio.play();
+            currentIndex++;
+            document.getElementById("zts").style.display = "flex";
+            document.getElementById("bfs").style.display = "none";
+        }
+
+        // 检测屏幕点击
         document.addEventListener('click', function () {
             if (is === 1) {
                 console.log('开始播放音乐')
                 playNext();
             }
         });
-
 
 
         // 鼠标拖尾特效
