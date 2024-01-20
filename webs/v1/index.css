@@ -1,0 +1,170 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    background-size: cover;
+    height: 200vh;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kl-1 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+}
+
+
+.kl-2 {
+    width: 520px;
+    height: 40px;
+    box-shadow: 0 10px 30px #00000085;
+    background: white;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.kl-2 img {
+    width: 25px;
+    margin-right: 10px;
+    border-radius: 100px ;
+}
+
+
+
+.kl-2 input {
+    width: 400px;
+    height: 20px;
+    border-style: none;
+    outline: none;
+}
+
+.klq {
+    cursor: pointer;
+}
+
+.wb h2 {
+    margin-top: -10px;
+}
+
+.kl-2 {
+    margin-top: 10px;
+}
+
+.kl-2 a {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.kl-2 img {
+    cursor: pointer;
+}
+
+.op {
+    width: 500px;
+    height: 180px;
+    box-shadow: 0 10px 30px #00000085;
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: -45px;
+    border-radius: 9px;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    position: fixed;
+    margin-top: 200px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.op img {
+    width: 25px;
+    height: 25px;
+}
+
+.iop {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.klq {
+    margin: 10px;
+    width: 60px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.klq:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.klq h6 {
+    margin: 5px;
+}
+
+.yp {
+    display: flex;
+}
+
+.tb img {
+    width: 150px;
+    border-radius: 20px;
+}
+
+.er {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.tb {
+    width: 180px;
+    height: 210px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.tb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.kl-1 h1 {
+    font-size: 40PX;
+    cursor:pointer;
+}
+
+.tb h3 {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .op {
+        width: 90%;
+    }
+}

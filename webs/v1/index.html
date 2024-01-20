@@ -1,3 +1,292 @@
-<h1>导航搜索页</h1>
-<h1>待开发</h1>
-<h1>Hello world!</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/ico.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/ico.jpg" type="image/x-icon">
+    <title>肥猫导航 | 资源搜索分享网站喵~</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="kl-1">
+        <div class="wb">
+            <h1>肥猫导航(测试版)</h1>
+        </div>
+        <div class="kl-2">
+            <img src="img/bd.png" id="yq" onclick="lk()">
+            <input type="text" placeholder="请输入您要搜索的内容" id="nr" onclick="jkl()">
+            <img src="img/ss.jpg" id="ss" onclick="ss()">
+            <a onclick=fy()>译/A</a>
+        </div>
+    </div>
+    <div class="op">
+        <div class="yp">
+            <div class="klq" onclick="q1()">
+                <div class="iop" onclick="q1()">
+                    <img src="img/g.jpg" onclick="q1()">
+                </div>
+                <div class="wz">
+                    <H6>谷歌</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q2()">
+                <div class="iop" onclick="q2()">
+                    <img src="img/hs.jpg" onclick="q2()">
+                </div>
+                <div class="wz">
+                    <H6>小红书</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q3()">
+                <div class="iop" onclick="q3()">
+                    <img src="img/bing.jpeg" onclick="q3()">
+                </div>
+                <div class="wz">
+                    <H6>bing</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q4()">
+                <div class="iop" onclick="q4()">
+                    <img src="img/sg.png" onclick="q4()">
+                </div>
+                <div class="wz">
+                    <H6>搜狗</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q5()">
+                <div class="iop" onclick="q5()">
+                    <img src="img/bd.png" onclick="q5()">
+                </div>
+                <div class="wz">
+                    <H6>百度</H6>
+                </div>
+            </div>
+            <div class="klq">
+                <div class="iop" onclick="q6()">
+                    <img src="img/rls.jpeg" onclick="q6()">
+                </div>
+                <div class="wz">
+                    <H6>Yandex</H6>
+                </div>
+            </div>
+        </div>
+        <div class="yp">
+            <div class="klq" onclick="q7()">
+                <div class="iop" onclick="q7()">
+                    <img src="img/zh.jpeg" onclick="q7()">
+                </div>
+                <div class="wz">
+                    <H6>知乎</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q8()">
+                <div class="iop" onclick="q8()">
+                    <img src="img/bl.jpg" onclick="q8()">
+                </div>
+                <div class="wz">
+                    <H6>bilibili</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q9()">
+                <div class="iop" onclick="q9()">
+                    <img src="img/gh.jpg" onclick="q9()">
+                </div>
+                <div class="wz">
+                    <H6>GitHud</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q10()">
+                <div class="iop" onclick="q10()">
+                    <img src="img/db.jpeg" onclick="q10()">
+                </div>
+                <div class="wz">
+                    <H6>豆瓣</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q11()">
+                <div class="iop" onclick="q11()">
+                    <img src="img/tt.jpg" onclick="q11()">
+                </div>
+                <div class="wz">
+                    <H6>头条</H6>
+                </div>
+            </div>
+            <div class="klq" onclick="q12()">
+                <div class="iop" onclick="q12()">
+                    <img src="img/fs.jpeg" onclick="q12()">
+                </div>
+                <div class="wz">
+                    <H6>F搜</H6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="er">
+        <div class="tb" onclick="gpt()">
+            <img src="img/imgop/gpt.jpg">
+            <div class="wzs">
+                <h3>ChatGPT</h3>
+            </div>
+        </div>
+        <div class="tb" onclick="bzl()">
+            <img src="img/imgop/bz.jpg">
+            <div class="wzs">
+                <h3>bilibili</h3>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    a = true
+    function lk() {
+        const opElement = document.querySelector(".op");
+        if (opElement.style.display === "none") {
+            opElement.style.display = "flex";
+        } else {
+            opElement.style.display = "none";
+            if (a === true) {
+                console.log('None')
+            }
+        }
+    }
+
+    function jkl() {
+        const opElement = document.querySelector(".op");
+        const opElement1 = document.querySelector(".er");
+        if (opElement.style.display === "flex") {
+            opElement.style.display = "none";
+            if (a === true) {
+                opElement1.style.display = "flex";
+            }
+        }
+    }
+
+    function gn() {
+        const opElement = document.querySelector(".er");
+        if (opElement.style.display === "none") {
+            opElement.style.display = "flex";
+            a = true
+        } else {
+            opElement.style.display = "none";
+            a = false
+        }
+    }
+
+    function q1() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/g.jpg"
+    }
+    function q2() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/hs.jpg"
+    }
+    function q3() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/bing.jpeg"
+    }
+    function q4() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/sg.png"
+    }
+    function q5() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/bd.png"
+    }
+    function q6() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/rls.jpeg"
+    }
+    function q7() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/zh.jpeg"
+    }
+    function q8() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/bl.jpg"
+    }
+    function q9() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/gh.jpg"
+    }
+    function q10() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/db.jpeg"
+    }
+    function q11() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/tt.jpg"
+    }
+    function q12() {
+        var imgElement = document.getElementById("yq");
+        imgElement.src = "img/fs.jpeg"
+    }
+    function ss() {
+        var imgElement = document.getElementById("yq");
+        var inputElement = document.getElementById("nr")
+        if (imgElement && imgElement.src.endsWith("img/g.jpg")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.google.com/search?q=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/hs.jpg")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.xiaohongshu.com/search_result/?&m_source=itab&keyword=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/bing.jpeg")) {
+            var inputValue = inputElement.value;
+            var url = "https://cn.bing.com/search?q=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/sg.png")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.sogou.com/sogou?query=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/bd.png")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.baidu.com/s?&tn=68018901_2_oem_dgie=utf-8&wd=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/rls.jpeg")) {
+            var inputValue = inputElement.value;
+            var url = "https://yandex.com/search/?text=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/zh.jpeg")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.zhihu.com/account/unhuman?type=unhuman&message=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/bl.jpg")) {
+            var inputValue = inputElement.value;
+            var url = "https://search.bilibili.com/all?keyword=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/gh.jpg")) {
+            var inputValue = inputElement.value;
+            var url = "https://github.com/search?q=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/db.jpeg")) {
+            var inputValue = inputElement.value;
+            var url = "https://www.douban.com/search?q=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/tt.jpg")) {
+            var inputValue = inputElement.value;
+            var url = "https://so.toutiao.com/search?dvpf=pc&keyword=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        } else if (imgElement && imgElement.src.endsWith("img/fs.jpeg")) {
+            var inputValue = inputElement.value;
+            var url = "https://fsoufsou.com/search?q=" + encodeURIComponent(inputValue);
+            window.open(url, '_blank')
+        }
+    }
+    function fy() {
+
+    }
+
+    function gpt() {
+        window.open('https://ai.kunshanyuxin.com/chat/gpt3.5.html?InvitationCode=uTEdfRwk', '_blank')
+    }
+    function bzl() {
+        window.open('https://www.bilibili.com', '_blank')
+    }
+</script>
+
+</html>

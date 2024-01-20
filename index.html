@@ -25,7 +25,8 @@
             <div class="dropdown-content">
                 <a onclick="openwindow()">站长留言</a>
                 <a onclick="showPopup()">音乐</a>
-                <a onclick="opendh()">导航搜索页</a>
+                <a onclick="gxr()">更新日志</a>
+                <a onclick="opendh()">肥猫导航</a>
                 <a href="#">待开发</a>
                 <a href="#">待开发</a>
             </div>
@@ -266,18 +267,34 @@
         //提示
         alert('本站是有背景音乐的，但是...可能会加载加载较慢...因为服务器在国外，所以请见谅。')
 
+        function gxr() {
+            alert('更新日志：\n[2024/1/20] 修复无法滑动页面问题')
+        }
+
+        //奇怪的bug修复
+        function gho() {
+            element.addEventListener('touchstart', function (e) {
+                e.preventDefault();
+            }, { passive: false });
+            setTimeout(function () {
+                element.addEventListener('touchstart', function (e) {
+                    e.preventDefault();
+                }, { passive: true });
+            },100)
+        }
+
         //顶部导航栏点击特效
         var links = document.querySelectorAll('a');
 
         links.forEach(function (link) {
             link.addEventListener('click', function (event) {
                 event.preventDefault();
-                //var targetId = this.getAttribute('href').substring(1);
-                //document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-                //links.forEach(function (element) {
-                //    element.style.color = '';
-                //});
-                //this.style.color = 'aqua';
+                var targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                links.forEach(function (element) {
+                    element.style.color = '';
+                });
+                this.style.color = 'aqua';
             });
         });
 
