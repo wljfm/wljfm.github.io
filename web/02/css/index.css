@@ -1,0 +1,398 @@
+/*BiliBili 无聊加肥猫*/
+/*
+首次编辑: 2024/1/12
+最后编辑:         
+*/
+
+/*纯纯一群傻逼*/
+
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: url(img/图标1.avif), auto;
+}
+
+body {
+    cursor: url(img/图标1.avif), auto;
+    background: url(img/index.jpg);
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+/*鼠标点击特效开始*/
+
+#ripple-effect {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: rgba(243, 27, 27, 0.3) 3px solid;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 100%;
+}
+
+/*鼠标点击特效结束*/
+/*屏幕特效开始*/
+
+.none {
+    display: none;
+}
+
+.tail_block {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: radial-gradient(transparent, blue);
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+#tail_show .show {
+    animation: tail_show 1s;
+}
+
+@keyframes tail_show {
+    0% {}
+
+    100% {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+/*屏幕特效结束*/
+
+/*导航栏*/
+.zb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.219);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zb img {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-top: 50px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.jz {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.zv1 {
+    display: flex;
+    margin-top: 30px;
+}
+
+.zv1 a {
+    display: flex;
+    height: 45px;
+    align-items: center;
+    width: 160px;
+    font-size: 16px;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.zv1 a:hover {
+    color: rgba(190, 180, 180, 0.938);
+}
+
+.zv1 p {
+    margin: 20px;
+}
+
+/*内容区*/
+.yb {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 500px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.nr {
+    width: 85%;
+    height: 100%;
+}
+
+.ba {
+    margin-top: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.219);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 97%;
+}
+
+.content h1 {
+    color: rgb(74, 74, 74);
+}
+
+.content h2 {
+    color: rgb(74, 74, 74);
+}
+
+.content h3 {
+    color: rgb(74, 74, 74);
+}
+
+.content img {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+.content span {
+    color: rgb(93, 104, 111);
+}
+
+.content p {
+    color: rgb(43, 47, 49);
+}
+
+.gx {
+    width: 95%;
+    height: 1px;
+    background: white;
+    border-radius: 20%;
+    margin: 20px;
+}
+
+#zx {
+    margin: 10px;
+}
+
+.zs {
+    font-weight: bold;
+}
+
+.xxs {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-left: 7px;
+    line-height: 25px;
+}
+
+.progress-bar {
+    width: 50%;
+    height: 5px;
+    background-color: #f2f2f200;
+    border-radius: 1px;
+    overflow: hidden;
+    border: rgba(219, 209, 209, 0.185) 1px solid;
+    margin-top: 6px;
+}
+
+.progress {
+    height: 5px;
+    border-radius: 1px;
+    transition: width 0.5s ease-in-out;
+}
+
+#progressBar {
+    width: 95%;
+    height: 10px;
+    border: none;
+    border-radius: 1px;
+    transition: width 0.5s ease-in-out;
+    margin: 10px;
+}
+
+#zk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.href {
+    width: 98%;
+    display: flex;
+    margin: 10px;
+}
+
+.href img {
+    object-fit: cover;
+    width: 140px;
+    height: 140px;
+}
+
+.jk {
+    margin: 10px;
+}
+
+.href span {
+    font-size: 12px;
+    color: rgb(93, 104, 111);
+}
+
+.href h2 {
+    color: rgb(74, 74, 74);
+}
+
+.href p {
+    margin-top: 20px;
+}
+
+.href a {
+    color: rgb(52, 158, 243);
+    margin: 10px;
+    font-size: 12px;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.db {
+    width: 100%;
+    height: 55px;
+    display: none;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.219);
+    backdrop-filter: blur(10px);
+}
+
+.fa-bars {
+    font-size: 24px;
+    color: rgb(134, 144, 154);
+    margin-left: 20px;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.db a {
+    color: rgb(134, 144, 154);
+    font-size: 16px;
+    margin-left: 50px;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 55px;
+}
+
+
+
+
+/*################################################################################################################*/
+
+/*1200px*/
+@media only screen and (max-width: 1200px) {
+    .zb {
+        width: 233px;
+    }
+
+    .yb {
+        width: calc(100% - 233px);
+    }
+
+    .jz {
+        display: none;
+    }
+
+    .zv1 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*1000px*/
+@media only screen and (max-width: 1000px) {
+    .zb img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .name {
+        display: none;
+    }
+
+    .zv1 p {
+        display: none;
+    }
+
+    .zb {
+        width: 70px;
+    }
+
+    .zb li {
+        font-size: 18px;
+    }
+
+    .yb {
+        width: calc(100% - 70px);
+    }
+
+    .zv1 a {
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/*600px*/
+@media only screen and (max-width: 600px) {
+    .db {
+        display: flex;
+    }
+
+    .zb {
+        display: none;
+    }
+
+    .yb {
+        width: 100%;
+    }
+
+    .progress-bar {
+        width: 80%;
+    }
+
+    #wb {
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    .href img {
+        display: none;
+    }
+}
