@@ -1,0 +1,120 @@
+
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+html {
+    scroll-behavior: smooth;
+    cursor: url(img/图标1.avif), auto;
+}
+
+body {
+    cursor: url(img/图标1.avif), auto;
+    background: url(img/index.jpg);
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+/*鼠标点击特效开始*/
+
+#ripple-effect {
+    width: 20px;
+    height: 20px;
+    border: rgba(243, 27, 27, 0.3) 3px solid;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    box-shadow: 0 10px 30px #00000085;
+    border-radius: 100%;
+}
+
+/*鼠标点击特效结束*/
+/*屏幕特效开始*/
+
+.none {
+    display: none;
+}
+
+.tail_block {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: radial-gradient(transparent, blue);
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+#tail_show .show {
+    animation: tail_show 1s;
+}
+
+@keyframes tail_show {
+    0% {}
+
+    100% {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+/*屏幕特效结束*/
+
+/*导航栏*/
+.zb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.219);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zb img {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-top: 50px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.jz {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.zv1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.zv1 a {
+    display: flex;
+    height: 45px;
+    align-items: center;
+    width: 160px;
+    font-size: 16px;
+    cursor: url(img/图标2.avif), auto;
+}
+
+.zv1 a:hover {
+    color: rgba(190, 180, 180, 0.938);
+}
+
+.zv1 p {
+    margin: 20px;
+}

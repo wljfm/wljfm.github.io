@@ -1,702 +1,220 @@
 <!--bilibili 无聊加肥猫-->
-<!--v1.5-->
+<!--v2.0-->
 <!DOCTYPE html>
 <html lang="en">
 
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="css/img/tx.png" type="image/x-icon">
-    <link rel="shortcut icon" href="css/img/tx.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/ico.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/ico.png" type="image/x-icon">
     <title>无聊加肥猫の个人网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <!--鼠标点击特效-->
+    <!--鼠标拖尾-->
+    <div id="tail_show"></div>
+    <!--鼠标点击-->
     <div id="ripple-effect"></div>
 
-    <!--顶部导航栏-->
-    <nav>
-        <div class="dropdown">
-            <button class="dropbtn">菜单</button>
-            <div class="dropdown-content">
-                <a onclick="openwindow()">站长留言</a>
-                <a onclick="showPopup()">音乐</a>
-                <a onclick="gxr()">更新日志</a>
-                <a onclick="opendh()">肥猫导航</a>
-                <a href="#">待开发</a>
-                <a href="#">待开发</a>
+    <div class="zb">
+        <img src="css/img/tx.png">
+        <p class="name">无聊加肥猫</p>
+        <p class="jz">你可以一无所有，但绝不能一无是处</p>
+        <div class="zv1">
+            <div class="zv1z">
+                <a onclick="openhome()">
+                    <li class="fa fa-home"></li>
+                    <p id="v1s">首页</p>
+                </a>
+                <a onclick="opengithub()">
+                    <li class="fab fa-github"></li>
+                    <p>Github</p>
+                </a>
+                <a onclick="opengitee()">
+                    <li class="fab fa-google"></li>
+                    <p>Gitee</p>
+                </a>
+                <a onclick="openbili()">
+                    <li class="fa fa-play-circle"></li>
+                    <p>bilibili</p>
+                </a>
+            </div>
+            <div class="zv1y">
+                <a onclick="openyx()">
+                    <li class="fas fa-envelope"></li>
+                    <p>邮箱</p>
+                </a>
+                <a onclick="openrz()">
+                    <li class="fa fa-cloud"></li>
+                    <p>更新日志</p>
+                </a>
+                <a onclick="opengy()">
+                    <li class="	fa fa-question"></li>
+                    <p>关于</p>
+                </a>
+                <a onclick="opengd()">
+                    <li class="fa fa-paper-plane"></li>
+                    <p>更多</p>
+                </a>
             </div>
         </div>
-        <ul>
-            <li><a href="#home" style="color: aqua;">首</a><a href="#home" id="en" style="color: aqua;">Home</a></li>
-            <li><a href="#about">我</a><a href="#about" id="en">About us</a></li>
-            <li><a href="#xianchong">事</a><a href="#xianchong" id="en">Story</a></li>
-            <li><a href="#game">戏</a><a href="#game" id="en">Game</a></li>
-            <li><a href="#contact">联</a><a href="#contact" id="en">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!--Home-->
-    <div id="home" class="beijing">
-        <!--设置背景-->
-        <img src="css/img/tx.png" onclick="openbili()">
-        <span id="hanying">H e l l o</span>
-        <span id="jingjv">业精于勤，荒于嬉 行成于思，毁于随</span>
-        <span>Industry expertise in the ground.</span>
-        <span>shortage in the play.line into thinking</span>
-        <span>destroyed with the</span>
     </div>
+    <div class="yb">
+        <div class="db">
+            <div class="container">
+                <li class="fa fa-bars" onclick="opencd()"></li>
+                <a>无聊加肥猫の个人网站</a>
+            </div>
+        </div>
 
-    <!--About us-->
-    <div id="about" class="beijing_about">
-        <div class="abouts">
-            <!--个人简介-->
-            <div class="about_gejj">
-                <h1 id="names" onclick="openbili()">无聊加肥猫</h1>
-                <h1 id="urls" onclick="openbili()">https://space.bilibili.com/699823793</h2>
-                    <div class="jjs">
-                        <div class="jj">
-                            <h1>个人简介</h1>
-                            <span>性别：男</span>
-                            <span>年龄：16</span>
-                            <span>学科：理科</span>
-                            <span> QQ ：3607005435</span>
-                            <span>原神UID：154875383</span>
-                            <span>爱好：二次元|科技|编程</span>
-                            <span>邮箱(1)：3607005435@qq.com</span>
-                            <span>邮箱(2)：lll18388618549@163.com</span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+        <div class="nr">
+            <!--
+                -内容书写规则-
+                [ba]新建一个区域
+                [content]新建一个内容书写区
+                [href]新建一个文章跳转区
+                [jk]文章跳转区简介
+                [<p>　</p>]空格
+                [h1,h2,h3]标题
+                [span]时间
+                [img]图片
+                [p]内容
+                [br]换行
+                [gx]隔线
+                [id="zx"]添加间距
+                [class="zs"]字体加粗
+                [xxs]新建一个进度条区域
+            -->
+
+            <!-- v 内容书写区 v -->
+
+            <div class="ba">
+                <div class="content">
+                    <p>　</p>
+                    <h1>欢迎来到我的个人网站</h1>
+                    <span>2023年 1月 23日</span>
+                    <p>　</p>
+                    <img src="css/img/index.jpg">
+                    <p>　</p>
+                    <p>　</p>
+                </div>
+            </div>
+
+            <div class="ba">
+                <div class="content">
+                    <h1>简介</h1>
+                    <span>2023年 1月 23日</span>
+                    <p>　</p>
+                    <h2>个人简介</h2>
+                    <p id="zx">
+                        性别：男<br>
+                        年龄：16<br>
+                        爱好：二次元|军事|科技|编程<br>
+                        个人标签：技术宅 二次元 游戏人 路痴
+                    </p>
+                    <div class="gx"></div>
+                    <h2>Contact</h2>
+                    <p id="zx" class="zs">QQ：3607005435</p>
+                    <p id="zx" class="zs">WeChat：None</p>
+                    <p id="zx" class="zs">email(1)：3607005435@qq.com</p>
+                    <p id="zx" class="zs">email(2)：lll18388618549@163.com</p>
+                    <p id="zx" class="zs">email(3)：outlook_975BBECB9034B39F@outlook.com</p>
+                    <p>　</p>
+                </div>
+            </div>
+
+            <div class="ba">
+                <div class="content">
+                    <h1>略懂</h1>
+                    <div class="xxs">
+                        <p>87% - python</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 87%; background-color: rgb(93, 124, 226);">
+                            </div>
                         </div>
-                        <div class="dm">
-                            <h1 id="bts2">君の能力</h1>
-                            <div class="xxs">
-                                <span>87% - python</span>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 87%; background-color: rgb(93, 124, 226);">
-                                    </div>
-                                </div>
-                                <span>11% - C/C++</span>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 11%; background-color: rgb(229, 144, 0);">
-                                    </div>
-                                </div>
-                                <span>76% - HTML & CSS & JS</span>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 76%; background-color: rgb(0, 229, 146);">
-                                    </div>
-                                </div>
-                                <span>34% - PR & AE(剪辑)</span>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 34%; background-color: rgb(0, 191, 229);">
-                                    </div>
-                                </div>
-                                <span> 6% - UE4/5(虚幻引擎)</span>
-                                <div class="progress-bar">
-                                    <div class="progress" style="width: 6%; background-color: rgb(216, 18, 51);">
-                                    </div>
-                                </div>
+                        <p>11% - C/C++</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 11%; background-color: rgb(229, 144, 0);">
+                            </div>
+                        </div>
+                        <p>76% - HTML & CSS & JS</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 76%; background-color: rgb(0, 229, 146);">
+                            </div>
+                        </div>
+                        <p>34% - PR & AE</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 34%; background-color: rgb(0, 191, 229);">
+                            </div>
+                        </div>
+                        <p> 6% - UE4/5</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 6%; background-color: rgb(216, 18, 51);">
+                            </div>
+                        </div>
+                        <p> 23% - Photoshop</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 23%; background-color: rgb(193, 18, 216);">
                             </div>
                         </div>
                     </div>
+                    <p>　</p>
+                </div>
+            </div>
+
+            <div class="ba">
+                <div class="href">
+                    <img src="img/01.jpg">
+                    <div class="jk">
+                        <h2>站长留言</h2>
+                        <span>2023年 1月 23日</span>
+                        <p>就是站长的留言啊！</p>
+                        <a href="https://wljfm.github.io/text/01/index.html">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ba">
+                <div class="href">
+                    <img src="img/02.jpg">
+                    <div class="jk">
+                        <h2>关于游戏和动漫</h2>
+                        <span>2023年 1月 23日</span>
+                        <p>关于站长游戏和动漫的成分</p>
+                        <a>阅读全文</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ba">
+                <div class="href">
+                    <img src="img/03.jpg">
+                    <div class="jk">
+                        <h2>个人网站的搭建</h2>
+                        <span>2023年 1月 23日</span>
+                        <p>关于搭建[个人网站/博客]的教程</p>
+                        <a>阅读全文</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ^ 内容书写区 ^ -->
+
+            <!--结尾-->
+            <div class="ba">
+                <div class="content" id="zk">
+                    <p class="zs" id="wb">Copyrights © 2024 无聊加肥猫. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!--Xianchong-->
-    <div class="beijing_xianchong" id="xianchong">
-        <div class="gs_bj">
-            <h1>我の故事</h1>
-            <span>一个二次元爱好者，热爱编程，游戏和理科</span>
-            <span>对科技发展充满了浓厚的兴趣和热情。梦想是成为【拯救世界】的技术宅！</span>
-            <span>一个24年了，还在看东方的休伯利安舰长，刀客塔，司辰兼B站用户！</span>
-            <span>如果你也是二次元爱好者，喜欢编程，热爱游戏，对理科和科技感兴趣，</span>
-            <span>那么关注我的B站账号将是你的理想去处。无论是交流经验，获取资源，</span>
-            <span>还是发现新的乐趣，这里都是你的舞台。</span>
-            <span>我希望通过这个网站，能够与更多志同道合的朋友们相互交流，分享</span>
-            <span>我们的喜好和见解，共同进步，共同探索二次元、编程、游戏和</span>
-            <span>科技的无限魅力。</span>
-            <span>感谢你的访问！无聊加肥猫 2024/1/13</span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!--Game-->
-    <div id="game" class="beijing_game">
-        <div class="games">
-            <h1 id="bts">游戏の成分</h1>
-            <h1>网游</h1>
-            <div class="wy">
-                <span>【原神】</span>
-                <span>【崩坏三】</span>
-                <span>【崩坏·星穹铁道】</span>
-            </div>
-            <h1>Steam Game</h1>
-            <div class="wy">
-                <span>【战舰世界】</span>
-                <span>【坦克世界】</span>
-                <span>【战地五】</span>
-                <span>【CSGO】</span>
-                <span>【绝地求生】</span>
-            </div>
-            <h1>单机 Game</h1>
-            <div class="wy">
-                <span>【给他爱5】</span>
-                <span>【荒野大镖客2】</span>
-                <span>【都市天际线】</span>
-                <span>【微软模拟飞行2020】</span>
-                <span>【我的世界】</span>
-            </div>
-            <h1 id="bts">现充の成分</h1>
-            <div class="wy">
-                <span>【魔女之旅】</span>
-                <span>【某科学的超电磁炮】</span>
-                <span>【鬼灭之刃】</span>
-                <span>【咒术回战】</span>
-                <span>【葬送的芙莉莲】</span>
-            </div>
-            <div class="wy">
-                <span>【魔法禁书目录】</span>
-                <span>【为美好的世界献上爆炎】</span>
-                <span>【境界的彼方】</span>
-                <span>【孤独摇滚】</span>
-                <span>【Charlotte】</span>
-            </div>
-            <div class="wy">
-                <span>【虚构推理】</span>
-                <span>【玉子市场】</span>
-                <span>【刀剑神域】</span>
-                <span>【此花亭奇谭】</span>
-                <span>【物语系列】</span>
-            </div>
-            <span>　</span>
-        </div>
-    </div>
-    <!--Contact-->
-    <div id="contact" class="beijing_contact">
-        <div class="sm">
-            <div class="kls">
-                <h1>联系我</h1>
-                <span>　QQ : 3607005435</span>
-                <span id="bili" onclick="openbili()">　B站: 无聊加肥猫</span>
-                <span>　邮箱(1): 3607005435@qq.com</span>
-                <span>　邮箱(2): lll18388618549@163.com</span>
-                <span>　邮箱(3): outlook_975BBECB9034B39F@outlook.com</span>
-            </div>
-        </div>
-        <div class="cbj">
-            <div class="zb" onclick="openme()">
-                <img src="css/img/ico.png" onclick="openme()">
-                <h1 onclick="openme()">2020 - 2024</h1>
-                <h1 onclick="openme()">无聊加肥猫の个人网站</h1>
-            </div>
-            <div class="yb">
-                <img src="css/imgs/gitee.png" onclick="opengitee()">
-                <img src="css/imgs/github.png" onclick="opengithub()">
-            </div>
-        </div>
-        <div class="hm">
-            <div class="klo_1">
-                <a id="wz" onclick="openbili()">官方B站账号</a>
-                <a>&</a>
-                <a id="wzs" onclick="opengitees()">无聊加肥猫二次元高清图片收集</a>
-            </div>
-            <div class="klo_2">
-                <a id="wzd" onclick="opentp()">樱道随机图片</a>
-                <a>&</a>
-                <a id="wzf" onclick="opentw()">拖尾特效</a>
-                <a>&</a>
-                <a id="wzg" onclick="openyh()">樱花特效</a>
-            </div>
-        </div>
-    </div>
-
-    <!--鼠标拖尾特效-->
-    <div id="tail_show"></div>
-
-    <!--预加载鼠标指针-->
-    <img src="css/img/图标1.avif" style="display: none;">
-    <img src="css/img/图标2.avif" style="display: none;">
-
-    <!--站长留言弹窗-->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>站长留言</h1>
-            <p>　</p>
-            <p>-站长留言-</p>
-            <p>本站由[Github + hexo]搭建，由于网站服务器位于国外，部分时间可能出现无法访问或访问较慢问题请见谅。</p>
-            <p>　</p>
-            <p>-关于本站的开源-</p>
-            <p>本站源代码完全开源，Github、Gitee均可下载</p>
-            <p>Github：https://github.com/wljfm/wljfm.github.io</p>
-            <p>Gitee：https://gitee.com/BILIWLJFM/website</p>
-            <p>　</p>
-            <p>-关于软件下载-</p>
-            <p>本站不定时更新，站长自制软件！</p>
-            <p>　</p>
-        </div>
-    </div>
-
-    <!-- 弹出窗口 -->
-    <div id="popup">
-        <p id="klse">[播放器]当前正在播放</p>
-        <div class="jdt">
-            <p id="currentTime">00:00</p>
-            <input type="range" id="progressBar" min="0" max="100" value="0" step="1" oninput="seek(event)">
-        </div>
-        <div class="zx">
-            <!--上一首-->
-            <img src="css/img/mz.png" id="mzs" onclick="playPrev()">
-            <!--暂停-->
-            <img src="css/img/zt.png" id="zts" style="display: flex;" onclick="pauseAudio()">
-            <!--播放-->
-            <img src="css/img/my.png" id="bfs" style="display: none;" onclick="playAudio()">
-            <!--下一首-->
-            <img src="css/img/my.png" id="mys" onclick="playNext()">
-        </div>
-    </div>
-
-    <script>
-        //提示
-        alert('本站是有背景音乐的，但是...可能会加载加载较慢...因为服务器在国外，所以请见谅。')
-
-        function gxr() {
-            alert('更新日志：\n[2024/1/20] 修复无法滑动页面问题\n[2024/1/21] 更新IP记录功能')
-        }
-
-        //奇怪的bug修复
-        function gho() {
-            element.addEventListener('touchstart', function (e) {
-                e.preventDefault();
-            }, { passive: false });
-            setTimeout(function () {
-                element.addEventListener('touchstart', function (e) {
-                    e.preventDefault();
-                }, { passive: true });
-            },100)
-        }
-
-        //顶部导航栏点击特效
-        var links = document.querySelectorAll('a');
-
-        links.forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                var targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-                links.forEach(function (element) {
-                    element.style.color = '';
-                });
-                this.style.color = 'aqua';
-            });
-        });
-
-        //滑出窗口特效
-        function showPopup() {
-            var popup = document.getElementById("popup");
-            popup.style.display = "block";
-
-            setTimeout(function () {
-                popup.style.animation = "slideOutLeft 0.5s forwards";
-                setTimeout(function () {
-                    popup.style.display = "none";
-                    popup.style.animation = "";
-                }, 20000);
-            }, 20000);
-        }
-
-        //鼠标点击特效
-        document.addEventListener('DOMContentLoaded', function () {
-            const rippleEffect = document.getElementById('ripple-effect');
-
-            document.body.addEventListener('click', function (e) {
-                const x = e.pageX - 10;
-                const y = e.pageY - 10;
-                rippleEffect.style.left = x + 'px';
-                rippleEffect.style.top = y + 'px';
-                rippleEffect.style.opacity = '1';
-                rippleEffect.style.transform = 'scale(1)';
-                setTimeout(function () {
-                    rippleEffect.style.opacity = '0';
-                    rippleEffect.style.transform = 'scale(0)';
-                }, 100);
-            });
-        });
-
-        //服了改了TM的2天的bug了，服了这个播放器了
-        //(￣へ￣) 2024/1/15
-        //判断是否播放音频
-        var tu = 0;
-        var is = 0;
-        var currentAudio = null;
-        var progressInterval = null;
-
-        function checkAudioPlaying(audioUrl) {
-            setTimeout(function () {
-                tu += 1;
-                for (var i = 0; i < audioList.length; i++) {
-                    var audio = audioList[i];
-                    if (!audio.paused) {
-                        console.log('音频正在播放');
-                        is === 2;
-                        return true;
-                    }
-                }
-                console.log('警告(' + tu + ')音频未播放，重启播放器！');
-                console.log('警告(' + tu + ')浏览器可能禁止播放器自动播放！')
-                console.log('已启动手动点击播放')
-                is === 1;
-                checkAudioPlaying(audioUrl);
-                playNext(audioUrl);
-                return false;
-            }, 3000)
-        }
-
-        // 定义音频列表
-        let playlist = [
-            'music/China-C.mp3',
-            'music/Moon Halo.mp3',
-            'music/China-A.mp3',
-            'music/China-X.mp3',
-            'music/China-E.mp3',
-            'music/Da Capo.mp3',
-        ];
-
-        // 输出音乐缓存信息
-        var audioList = [];
-        var currentIndex = 0;
-        var yps = 0;
-        var iiiu = 0;
-
-        function cacheAndPlay(audioUrl) {
-            yps += 1;
-            if (yps === 1) {
-                console.log('开始缓存音频');
-            }
-            var audio = new Audio(audioUrl);
-            audio.preload = 'auto'; // 自动缓存音频
-            console.log("开始缓存：" + audioUrl);
-            audio.addEventListener('canplaythrough', function () {
-                console.log("已缓存：" + audioUrl);
-                audioList.push(audio);
-
-                if (audioList.length === 1) {
-                    console.log('第一首音频已缓存，开始播放...');
-                    playNext(audioUrl);
-                    checkAudioPlaying(audioUrl); // 检测是否有音频正在播放
-                } else if (audioList.length === playlist.length) {
-                    console.log('所有音频均已缓存...');
-                }
-            });
-
-            audio.addEventListener('progress', function (event) {
-                if (event.lengthComputable) {
-                    var loadedPercent = (event.loaded / event.total) * 100;
-                    console.log(audioUrl + " 已加载：" + loadedPercent.toFixed(2) + "%");
-                }
-            });
-
-            audio.load(); // 开始缓存音频
-        }
-
-        playlist.forEach(function (audioUrl) {
-            cacheAndPlay(audioUrl);
-        });
-
-        // 播放音乐
-        var iiiy = 0;
-
-        function playNext() {
-            if (currentAudio) {
-                pauseAudio();
-                clearInterval(progressInterval);
-            }
-
-            if (currentIndex >= playlist.length) {
-                return; // 播放完毕，不再继续
-            }
-
-            iiiy += 1;
-
-            let audio = audioList[currentIndex];
-            var fileName = audioList[currentIndex].split('/').pop().split('.').slice(0, -1).join('.')
-
-            console.log('正在播放音乐：' + fileName);
-            document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
-            var element = document.getElementById("klse");
-            console.log('播放器已启动...');
-            showPopup();
-
-            // 更新当前播放时长和进度条
-            var currentTimeElement = document.getElementById("currentTime");
-            var progressBar = document.getElementById("progressBar");
-            progressInterval = setInterval(function () {
-                currentTimeElement.textContent = formatTime(audio.currentTime);
-                var progressWidth = (audio.currentTime / audio.duration) * 100;
-                progressBar.value = progressWidth;
-            }, 1000);
-
-            audio.onended = function () {
-                currentIndex++;
-                playNext(playlist[currentIndex]);
-            };
-
-            audio.play();
-            currentIndex++;
-            document.getElementById("zts").style.display = "flex";
-            document.getElementById("bfs").style.display = "none";
-        }
-
-        // 格式化时间为 mm:ss 的形式
-        function formatTime(time) {
-            var minutes = Math.floor(time / 60);
-            var seconds = Math.floor(time % 60);
-            return (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-        }
-
-        // 拖动进度条控制播放位置
-        function seek(event) {
-            var progressBar = document.getElementById("progressBar");
-            var audio = audioList[currentIndex - 1];
-            var seekTime = (event.target.value / 100) * audio.duration;
-            audio.currentTime = seekTime;
-            progressBar.value = event.target.value;
-        }
-
-        // 暂停音乐
-        function pauseAudio() {
-            let audio = audioList[currentIndex - 1];
-            audio.pause();
-            clearInterval(progressInterval);
-            document.getElementById("zts").style.display = "none";
-            document.getElementById("bfs").style.display = "flex";
-        }
-
-        // 继续播放音乐
-        function playAudio() {
-            let audio = audioList[currentIndex - 1];
-            audio.play();
-            document.getElementById("zts").style.display = "flex";
-            document.getElementById("bfs").style.display = "none";
-        }
-
-        // 播放上一首音乐
-        function playPrev() {
-            pauseAudio()
-            currentIndex -= 2;
-            if (currentIndex < 0) {
-                currentIndex = playlist.length - 1;
-            }
-            let audio = audioList[currentIndex];
-            audio.currentTime = 0; // 从头开始播放
-            playNext(playlist[currentIndex]);
-        }
-
-        // 播放下一首音乐
-        function playNext() {
-            if (iiiy >= 1) {
-                pauseAudio()
-            }
-            if (currentIndex >= playlist.length) {
-                return; // 播放完毕，不再继续
-            }
-
-            iiiy += 1;
-
-            let audio = audioList[currentIndex];
-            var fileName = playlist[currentIndex].split('/').pop().split('.').slice(0, -1).join('.')
-
-
-            console.log('正在播放音乐：' + fileName);
-            document.getElementById("klse").innerHTML = "当前正在播放 - [ " + fileName + " ]";
-            var element = document.getElementById("klse");
-            console.log('播放器已启动...');
-            showPopup();
-
-            // 更新当前播放时长和进度条
-            var currentTimeElement = document.getElementById("currentTime");
-            var progressBar = document.getElementById("progressBar");
-            progressInterval = setInterval(function () {
-                currentTimeElement.textContent = formatTime(audio.currentTime);
-                var progressWidth = (audio.currentTime / audio.duration) * 100;
-                progressBar.value = progressWidth;
-            }, 1000);
-
-            audio.onended = function () {
-                currentIndex++;
-                playNext(playlist[currentIndex]);
-            };
-
-            audio.play();
-            currentIndex++;
-            document.getElementById("zts").style.display = "flex";
-            document.getElementById("bfs").style.display = "none";
-        }
-
-        // 检测屏幕点击
-        document.addEventListener('click', function () {
-            if (is === 1) {
-                console.log('开始播放音乐')
-                playNext();
-            }
-        });
-
-
-        // 鼠标拖尾特效
-        var s = "", tail_sum = 200, tail_num = 0;
-        for (var i = 0; i < tail_sum; i += 1) {
-            var randomColor = Math.floor(Math.random() * 16777215).toString(16); // 生成随机颜色代码
-            s += ('<div class="tail_block none" id="tail_block_' + i + '" style="background-image: radial-gradient(transparent, #' + randomColor + ');"></div>');
-        }
-        document.getElementById("tail_show").innerHTML = s;
-
-        document.addEventListener('mousemove', function (event) {
-            setTimeout(function () {
-                var t = document.getElementById("tail_block_" + tail_num);
-                t.className = "tail_block show";
-                t.style.top = event.clientY + 20 + 'px';
-                t.style.left = event.clientX + 20 + 'px';
-                setTimeout(function () { t.className = "tail_block none"; }, 100);
-                tail_num = (tail_num + 1) % tail_sum;
-            }, 10);
-        });
-
-        // 鼠标长按特效
-        var s_new = "", tail_sum_new = 200, tail_num_new = 0;
-        for (var i_new = 0; i_new < tail_sum_new; i_new += 1) {
-            var randomColor = Math.floor(Math.random() * 16777215).toString(16); // 生成随机颜色代码
-            s_new += ('<div class="tail_block none" id="tail_block_' + i_new + '" style="background-image: radial-gradient(transparent, #' + randomColor + ');"></div>');
-        }
-        document.getElementById("tail_show").innerHTML = s_new;
-
-        let intervalId_new;
-        let isLongPress_new = false;
-
-        document.addEventListener('mousemove', function (event) {
-            if (isLongPress_new) {
-                setTimeout(function () {
-                    var t_new = document.getElementById("tail_block_" + tail_num_new);
-                    t_new.className = "tail_block show";
-                    t_new.style.top = event.clientY + 20 + 'px';
-                    t_new.style.left = event.clientX + 20 + 'px';
-                    setTimeout(function () { t_new.className = "tail_block none"; }, 100);
-                    tail_num_new = (tail_num_new + 1) % tail_sum_new;
-                }, 10);
-            }
-        });
-
-        document.addEventListener('mousedown', function (event) {
-            intervalId_new = setInterval(function () {
-                isLongPress_new = true;
-            }, 100);
-        });
-
-        document.addEventListener('mouseup', function (event) {
-            clearInterval(intervalId_new);
-            isLongPress_new = false;
-        });
-
-        // 触摸长按特效
-        document.addEventListener('touchmove', function (event) {
-            event.preventDefault(); // 阻止默认行为，避免页面滚动
-            if (isLongPress_new) {
-                setTimeout(function () {
-                    var touch = event.touches[0];
-                    var t_new = document.getElementById("tail_block_" + tail_num_new);
-                    t_new.className = "tail_block show";
-                    t_new.style.top = touch.clientY + 20 + 'px';
-                    t_new.style.left = touch.clientX + 20 + 'px';
-                    setTimeout(function () { t_new.className = "tail_block none"; }, 100);
-                    tail_num_new = (tail_num_new + 1) % tail_sum_new;
-                }, 10);
-            }
-        });
-
-        document.addEventListener('touchstart', function (event) {
-            event.preventDefault(); // 阻止默认行为，避免页面滚动
-            intervalId_new = setInterval(function () {
-                isLongPress_new = true;
-            }, 100);
-        });
-
-        document.addEventListener('touchend', function (event) {
-            clearInterval(intervalId_new);
-            isLongPress_new = false;
-        });
-
-
-        //弹窗
-        function openwindow() {
-            var modal = document.getElementById("myModal");
-            var closeButton = document.getElementsByClassName("close")[0];
-
-            closeButton.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-            modal.style.display = "block";
-        }
-
-        //打开外部网站
-        function openbili() {
-            var url = "https://space.bilibili.com/699823793"
-            window.open(url, '_blank')
-        }
-
-        function opengitee() {
-            var url = "https://gitee.com/BILIWLJFM"
-            window.open(url, '_blank')
-        }
-
-        function opengitees() {
-            var url = "https://gitee.com/BILIWLJFM/pixiv"
-            window.open(url, '_blank')
-        }
-
-        function opengithub() {
-            var url = "https://github.com/wljfm"
-            window.open(url, '_blank')
-        }
-
-        function openme() {
-            var url = "https://wljfm.github.io"
-            window.open(url, '_blank')
-        }
-
-        function opentp() {
-            var url = "https://img.r10086.com/"
-            window.open(url, '_blank')
-        }
-
-        function opentw() {
-            var url = "https://www.bilibili.com/video/BV1Cr4y1E7xK"
-            window.open(url, '_blank')
-        }
-
-        function openyh() {
-            var url = "https://www.bilibili.com/video/BV1Ey4y147BC"
-            window.open(url, '_blank')
-        }
-
-        function opendh() {
-            var url = "https://wljfm.github.io/webs/v1/index.html"
-            window.open(url, '_blank')
-        }
-
-    </script>
-
+    <script src="js/index.js"></script>
     <script src="js/iconfont.js"></script>
     <script src="js/index.js"></script>
     <script src="js/yh.js"></script>
