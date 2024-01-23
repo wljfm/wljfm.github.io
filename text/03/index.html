@@ -1,0 +1,163 @@
+<!--bilibili 无聊加肥猫-->
+<!--v2.0-->
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="css/img/ico.png" type="image/x-icon">
+    <link rel="shortcut icon" href="css/img/ico.png" type="image/x-icon">
+    <title>无聊加肥猫の个人网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!--鼠标拖尾-->
+    <div id="tail_show"></div>
+    <!--鼠标点击-->
+    <div id="ripple-effect"></div>
+
+    <div class="zb">
+        <img src="css/img/tx.png">
+        <p class="name">无聊加肥猫</p>
+        <p class="jz">你可以一无所有，但绝不能一无是处</p>
+        <div class="zv1">
+            <div class="zv1z">
+                <a onclick="openhome()">
+                    <li class="fa fa-home"></li>
+                    <p id="v1s">首页</p>
+                </a>
+                <a onclick="opengithub()">
+                    <li class="fab fa-github"></li>
+                    <p>Github</p>
+                </a>
+                <a onclick="opengitee()">
+                    <li class="fab fa-google"></li>
+                    <p>Gitee</p>
+                </a>
+                <a onclick="openbili()">
+                    <li class="fa fa-play-circle"></li>
+                    <p>bilibili</p>
+                </a>
+            </div>
+            <div class="zv1y">
+                <a onclick="openyx()">
+                    <li class="fas fa-envelope"></li>
+                    <p>邮箱</p>
+                </a>
+                <a onclick="openrz()">
+                    <li class="fa fa-cloud"></li>
+                    <p>更新日志</p>
+                </a>
+                <a onclick="opengy()">
+                    <li class="	fa fa-question"></li>
+                    <p>关于</p>
+                </a>
+                <a onclick="opengd()">
+                    <li class="fa fa-paper-plane"></li>
+                    <p>更多</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="yb">
+        <div class="db">
+            <div class="container">
+                <li class="fa fa-bars" onclick="opencd()"></li>
+                <a>无聊加肥猫の个人网站</a>
+            </div>
+        </div>
+
+        <div class="nr">
+            <!--
+                -内容书写规则-
+                [ba]新建一个区域
+                [content]新建一个内容书写区
+                [href]新建一个文章跳转区
+                [jk]文章跳转区简介
+                [<p>　</p>]空格
+                [h1,h2,h3]标题
+                [span]时间
+                [img]图片
+                [p]内容
+                [br]换行
+                [gx]隔线
+                [id="zx"]添加间距
+                [class="zs"]字体加粗
+                [xxs]新建一个进度条区域
+            -->
+
+            <!-- v 内容书写区 v -->
+            <div class="ba">
+                <div class="content">
+                    <h1>个人网站的搭建</h1>
+                    <span>2023年 1月 23日</span>
+                    <span>文章参考：https://mubu.com/doc/5OeZGO2XKgh</span>
+                    <p>　</p>
+                    <h2>准备工作</h2>
+                    <p id="zs">
+                        1.搭建前请先注册一个github账号<br>
+                        2.安装git、node.js、hexo、github上传插件
+                         2(1).git安装：https://git-scm.com/download<br>
+                         2(2).node.js安装：https://nodejs.org/en/download<br>
+                         2(3).安装好node.js后在cmd中输入以下命令切换npm源<br>
+                          npm config set registry https://registry.npm.taobao.org<br>
+                         2(4).在cmd中输入以下命令安装hexo<br>
+                          npm install -g hexo-cli
+                         2(5).在cmd中输入以下命令安装github上传插件<br>
+                          npm install hexo-deployer-git --save<br>
+                        3.准备工作完成！
+                    </p>
+                    <div class="gx"></div>
+                    <h2>网站搭建</h2>
+                    <p id="zs">
+                        1.运行以下命令在当前目录(博客文件夹目录，而且必须为空目录)初始化一个使用hexo框架的项目<br>
+                          hexo init<br>
+                        2.运行以下命令生成项目<br>
+                          hexo g<br>
+                        3.运行以下命令启动本地服务器(按Ctrl+C停止运行)<br>
+                          hexo s<br>
+                        4.右键项目目录打开Git bash here<br>
+                        5.运行以下命令初始化github的邮箱和用户名<br>
+                          git config --global user.name  "yourname"
+                          git config --global user.email  "youremail"
+                        6.运行以下命令生成ssh秘钥<br>
+                          ssh-keygen -t rsa -C "youremail"<br>
+                        7.打开github，点击头像，在下面点击settings，再点击SSH and GPG keys，新建一个SSH，名字随便取一个都可以，把你的ssh秘钥复制进去，点击create/创建<br>
+                        8.输入以下命令确认是否连接成功(出现用户名则成功)<br>
+                          ssh -T git@github.com<br>
+                        9.输入以下命令搭建网页(约两分钟即可访问)<br>
+                          hexo d<br>
+                        10.如果上传失败请输入[git config --global http.sslVerify false]关闭git的上传证书认证，然后使用Watt Toolkit加速github后再次上传
+                    </p>
+                    <div class="gx"></div>
+                    <h2>参考文章及视频</h2>
+                    <p>
+                        参考文章：https://mubu.com/doc/5OeZGO2XKgh<br>
+                        参考视频：https://www.bilibili.com/video/BV16b4y1G7fo<br>
+                    </p>
+                </div>
+            </div>
+
+            <!-- ^ 内容书写区 ^ -->
+
+            <!--结尾-->
+            <div class="ba">
+                <div class="content" id="zk">
+                    <p class="zs" id="wb">Copyrights © 2024 无聊加肥猫. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/yh.js"></script>
+</body>
+
+</html>
