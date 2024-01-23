@@ -99,18 +99,18 @@ document.addEventListener('touchend', function (event) {
 });
 
 function opencd() {
-    //window.location.replace('http://wljfm.github.io/cd/cd.html');
-    window.location.replace('http://127.0.0.1:5500/cd/cd.html');
+    window.location.replace('http://wljfm.github.io/cd/cd.html');
+    //window.location.replace('http://127.0.0.1:5500/cd/cd.html');
 }
 
 function openhome() {
-    //window.location.replace('http://wljfm.github.io');
-    window.location.replace('http://127.0.0.1:5500');
+    window.location.replace('http://wljfm.github.io');
+    //window.location.replace('http://127.0.0.1:5500');
 }
 
 function opengithub() {
-    //window.location.replace('http://wljfm.github.io/cd/cd.html');
-    window.location.replace('http://127.0.0.1:5500/cd/cd.html');
+    var url = "https://github.com/wljfm"
+    window.open(url, '_blank')
 }
 
 function openbili() {
