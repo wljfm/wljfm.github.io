@@ -1,0 +1,25 @@
+.code-block {
+    position: relative;
+}
+
+.line-numbers {
+    counter-reset: line;
+}
+
+.line-numbers>code {
+    display: block;
+    font-family: 'VS Code Font', monospace;
+    /*  VS Code 字体 */
+    white-space: pre;
+    counter-increment: line;
+}
+
+.line-numbers>code:before {
+    content: counter(line);
+    display: inline-block;
+    width: 2em;
+    padding-right: 1em;
+    margin-right: 1em;
+    color: #999;
+    text-align: right;
+}

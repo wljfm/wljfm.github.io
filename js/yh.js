@@ -6,7 +6,7 @@ img.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUgAAAEwCAYAAADVZeifAAA
 
 function yh() {
   // 樱花数量
-  var sakuraNum = 50;
+  var sakuraNum = 20;
   // 樱花越界限制次数, -1不做限制,无限循环
   var limitTimes = -1;
 
