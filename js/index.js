@@ -128,12 +128,35 @@ function opengithub() {
     window.open(url, '_blank')
 }
 
-// 初始化代码行号
-const codeBlocks = document.querySelectorAll('.line-numbers');
-codeBlocks.forEach(block => {
-  const lines = block.textContent.trim().split('\n').length;
-  block.style.setProperty('--lines', lines);
-});
+fetch('https://member.bilibili.com/x2/creative/h5/calendar/event?ts=0')
+    .then(response => response.json())
+    .then(data => {
+        const following = data.data.pfs.profile.following;
+        const follower = data.data.pfs.profile.follower;
+        console.log('关注数:', following);
+        console.log('粉丝数:', follower);
+        const fanElement = document.getElementById('fan');
+        fanElement.textContent = `粉丝数：${follower}`;
+        const fanElements = document.getElementById('gzs');
+        fanElements.textContent = `关注数：${following}`;
+    })
+    .catch(error => {
+        console.error('发生错误:', error);
+    });
 
-// Prism.js 初始化
-Prism.highlightAll();
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://wljfm.github.io/index.html', true);
+xhr.send();
+
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    var responseText = xhr.responseText;
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(responseText, "text/html");
+    var divs = doc.querySelectorAll('.href');
+    var jhss = divs.length;
+    console.log(jhss);
+    const fanElement = document.getElementById('jhs');
+    fanElement.textContent = `文章数：${jhss}`;
+  }
+};
