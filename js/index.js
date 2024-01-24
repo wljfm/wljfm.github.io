@@ -128,6 +128,8 @@ function opengithub() {
     window.open(url, '_blank')
 }
 
+//傻逼git，傻逼hexo，一直上传失败，傻逼玩意
+
 fetch('https://member.bilibili.com/x2/creative/h5/calendar/event?ts=0')
     .then(response => response.json())
     .then(data => {
