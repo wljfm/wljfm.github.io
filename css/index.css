@@ -308,6 +308,11 @@ body {
     align-items: center;
     background: rgba(255, 255, 255, 0.219);
     backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
 }
 
 .fa-bars {
@@ -342,6 +347,11 @@ body {
 .dm p {
     margin: 10px;
     font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+}
+
+.iframe {
+    width: 100%;
+    height: 400px;
 }
 
 /*################################################################################################################*/
@@ -421,6 +431,10 @@ body {
 
     #wb {
         font-size: 10px;
+    }
+
+    .nr {
+        margin-top: 60px;
     }
 
 }
