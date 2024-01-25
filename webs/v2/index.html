@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="ico.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>原神启动！</title>
+</head>
+
+<style>
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 70%;
+        border: none;
+        opacity: 0;
+        /* 初始时设置透明度为0 */
+    }
+
+    #ps {
+        display: flex;
+    }
+
+    p {
+        position: fixed;
+        font-size: 50px;
+    }
+
+    video {
+        display: none;
+    }
+
+    #e {
+        display: none;
+    }
+
+    @media only screen and (orientation: landscape) {
+        #ps {
+            display: none;
+        }
+
+        img {
+            animation: fadeIn 2s 8s forwards;
+            /* 使用fadeIn动画效果，持续2秒，结束后保持最终状态 */
+        }
+
+        video {
+            position: fixed;
+            opacity: 0;
+            display: flex;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        /* 动画开始时的透明度 */
+        to {
+            opacity: 1;
+        }
+
+        /* 动画结束时的透明度 */
+    }
+</style>
+
+<body>
+    <p id="ps">请横屏<br>后重新打开网页</p>
+    <img src="原神.png">
+    <video src="背景音乐.mp4" id="e" controls volume="1"></video>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function playVideo() {
+                var video = document.getElementById("e");
+                video.play();
+                setTimeout(function () {
+                    var video = document.getElementById("e");
+                    video.play();
+                }, 2000);
+            }
+            var element = document.getElementById("ps");
+            var computedStyle = window.getComputedStyle(element);
+            if (computedStyle.display === "none") {
+                console.log(true);
+                playVideo()
+                setTimeout(function () {
+                    window.location.replace('https://ys.mihoyo.com/main/');
+                }, 15000)
+            } else {
+                setTimeout(function () {
+                    if (computedStyle.display === "none") {
+                        console.log(true);
+                        playVideo()
+                        setTimeout(function () {
+                            window.location.replace('https://ys.mihoyo.com/main/');
+                        }, 15000)
+                    } else {
+                        setTimeout(function () {
+                            if (computedStyle.display === "none") {
+                                console.log(true);
+                                playVideo()
+                                setTimeout(function () {
+                                    window.location.replace('https://ys.mihoyo.com/main/');
+                                }, 15000)
+                            }
+                        }, 2000)
+                    }
+                }, 2000)
+            }
+        });
+    </script>
+</body>
+
+</html>
