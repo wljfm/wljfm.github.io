@@ -148,15 +148,38 @@ var xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://wljfm.github.io/index.html', true);
 xhr.send();
 
-xhr.onload = function() {
-  if (xhr.status === 200) {
-    var responseText = xhr.responseText;
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(responseText, "text/html");
-    var divs = doc.querySelectorAll('.href');
-    var jhss = divs.length;
-    console.log(jhss);
-    const fanElement = document.getElementById('jhs');
-    fanElement.textContent = `文章数：${jhss}`;
-  }
+xhr.onload = function () {
+    if (xhr.status === 200) {
+        var responseText = xhr.responseText;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(responseText, "text/html");
+        var divs = doc.querySelectorAll('.href');
+        var jhss = divs.length;
+        console.log(jhss);
+        const fanElement = document.getElementById('jhs');
+        fanElement.textContent = `文章数：${jhss}`;
+    }
 };
+
+play_iframe()
+function play_iframe() {
+    var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    console.log("窗口宽度：" + windowWidth);
+    console.log("窗口高度：" + windowHeight);
+    var iframeElement = document.getElementById("io");
+    var iframeWindow = iframeElement.contentWindow;
+    var iframeWidth = iframeWindow.innerWidth || iframeElement.clientWidth;
+    var iframeHeight = iframeWindow.innerHeight || iframeElement.clientHeight;
+    console.log("iframe长度：" + iframeWidth);
+    console.log("iframe高度：" + iframeHeight);
+    var raop = 16 / 9
+    var x = iframeWidth / raop
+    var roundedX = Math.round(x);
+    console.log("视频窗口高度：" + roundedX);
+    var iframes = document.getElementsByTagName("iframe");
+    for (var i = 0; i < iframes.length; i++) {
+        var iframe = iframes[i];
+        iframe.style.height = roundedX + "px";
+    }
+}

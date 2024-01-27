@@ -89,6 +89,7 @@
                 [id="zx"]添加间距
                 [class="zs"]字体加粗
                 [xxs]新建一个进度条区域
+                [id="io"]绑定视频播放器的id(必须添加)
             -->
 
             <!-- v 内容书写区 v -->
@@ -98,8 +99,12 @@
                     <div class="gx"></div>
                     <span>2024年 1月 24日</span>
                     <p>
-                        <br><h3>这是自我介绍吗？</h3><br>
-                    <iframe src="//player.bilibili.com/player.html?aid=326252167&bvid=BV1bw411J7td&cid=1406481592&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 400px;"> </iframe>
+                        <br>
+                    <h3>这是自我介绍吗？</h3><br>
+                    <iframe id="io"
+                        src="//player.bilibili.com/player.html?aid=326252167&bvid=BV1bw411J7td&cid=1406481592&p=1"
+                        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
+                        style="width: 100%; height: 400px;"> </iframe>
                     </p>
                     <div class="gx"></div>
                     <span>2024年 1月 25日</span>
@@ -116,6 +121,28 @@
                     </p>
                     <img src="img/24125.png" style="height: 300px;">
                     <div class="gx"></div>
+                    <span>2024年 1月 27日</span>
+                    <p id="zx">
+                        月色与雪色之间,你是第三种绝色“<br>
+                        于我而言,日月星辉之中.你是第四种难得<br>
+                        ---余光中<br>
+                        “从童年起,我便独自一人.照顾着历代的星辰”<br>
+                        但遇见你以后,念念落地生根<br>
+                        ---《孤独》<br>
+                        “凌晨四点半,海棠花未眠”<br>
+                        总觉得这时候。你应该在我身边<br>
+                        ---《花未眠》<br>
+                        写你名字可真难,倒不是笔画繁琐。只是写你名字时得蘸上<br>
+                        四分春风,三分月色,两分微醺.还有一分你的眉眼才好<br>
+                        ---李长风<br>
+                        我喜欢你<br>
+                        所以希望你被簇拥包围<br>
+                        所以你走的路要繁花盛开,要人声鼎沸<br>
+                        ---木苏里《某某》<br>
+                        不要问我心里有没有你,我余光中都是你<br>
+                        ---余光中<br>
+                    </p>
+                    <div class="gx"></div>
                 </div>
             </div>
 
@@ -131,6 +158,30 @@
         </div>
     </div>
 
+    <script>
+        play_iframe()
+        function play_iframe() {
+            var windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            console.log("窗口宽度：" + windowWidth);
+            console.log("窗口高度：" + windowHeight);
+            var iframeElement = document.getElementById("io");
+            var iframeWindow = iframeElement.contentWindow;
+            var iframeWidth = iframeWindow.innerWidth || iframeElement.clientWidth;
+            var iframeHeight = iframeWindow.innerHeight || iframeElement.clientHeight;
+            console.log("iframe长度：" + iframeWidth);
+            console.log("iframe高度：" + iframeHeight);
+            var raop = 16 / 9
+            var x = iframeWidth / raop
+            var roundedX = Math.round(x);
+            console.log("视频窗口高度：" + roundedX);
+            var iframes = document.getElementsByTagName("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+                var iframe = iframes[i];
+                iframe.style.height = roundedX + "px";
+            }
+        }
+    </script>
     <script src="https://wljfm.github.io/js/index.js"></script>
     <script src="https://wljfm.github.io/js/iconfont.js"></script>
     <script src="https://wljfm.github.io/js/index.js"></script>

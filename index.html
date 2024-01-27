@@ -165,6 +165,20 @@
 
             <!-- ^ 内容书写区 ^ -->
 
+            <!-- v 内容筛选 v -->
+            <div class="ba">
+                <div class="content">
+                    <p>　</p>
+                    <h1>文章筛选</h1>
+                    <div class="sx">
+                        <input type="text" id="searchInput" placeholder="输入内容以检索文章" oninput="searchArticles()">
+                        <button onclick="searchArticles()">检索</button>
+                    </div>
+                    <p>　</p>
+                </div>
+            </div>
+            <!-- ^ 内容筛选 ^ -->
+
             <!-- v 跳转区 v -->
 
             <div class="ba">
@@ -241,6 +255,13 @@
 
             <!-- ^ 跳转区 ^ -->
 
+            <div class="ba" id="not">
+                <div class="content">
+                    <h1>Not found.</h1>
+                    <h3>您搜索的内容不存在！当然所不定是给站长删了。</h3>
+                </div>
+            </div>
+
             <!--结尾-->
             <div class="ba">
                 <div class="content" id="zk">
@@ -250,6 +271,29 @@
         </div>
     </div>
 
+    <script>
+        function searchArticles() {
+            var inputText = document.getElementById('searchInput').value.toLowerCase();
+            var articles = document.querySelectorAll('.href');
+            var notFoundElement = document.getElementById('not');
+            var foundCount = 0;
+            articles.forEach(function (article) {
+                var articleTitle = article.querySelector('h2').textContent.toLowerCase();
+                if (articleTitle.includes(inputText)) {
+                    article.style.display = 'flex';
+                    foundCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            if (foundCount === 0) {
+                notFoundElement.style.display = 'flex';
+            } else {
+                notFoundElement.style.display = 'none';
+            }
+        }
+
+    </script>
     <script src="js/index.js"></script>
     <script src="js/iconfont.js"></script>
     <script src="js/index.js"></script>
