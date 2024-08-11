@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片收集网</title>
+</head>
+
+<style>
+    /* From Uiverse.io by satyamchaudharydev */
+    /* From uiverse.io by @satyamchaudharydev */
+    /* this button is inspired by -- whatsapp input */
+    /* == type to see fully interactive and click the close buttom to remove the text  == */
+
+    .form {
+        --input-bg: white;
+        /*  background of input */
+        --padding: 1.5em;
+        --rotate: 80deg;
+        /*  rotation degree of input*/
+        --gap: 2em;
+        /*  gap of items in input */
+        --icon-change-color: #15A986;
+        /*  when rotating changed icon color */
+        --height: 40px;
+        /*  height */
+        width: 200px;
+        padding-inline-end: 1em;
+        /*  change this for padding in the end of input */
+        background: var(--input-bg);
+        position: relative;
+        border-radius: 4px;
+    }
+
+    .form label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: var(--height);
+    }
+
+    .form input {
+        width: 100%;
+        padding-inline-start: calc(var(--padding) + var(--gap));
+        outline: none;
+        background: none;
+        border: 0;
+    }
+
+    /* style for both icons -- search,close */
+    .form svg {
+        /* display: block; */
+        color: #111;
+        transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+        position: absolute;
+        height: 15px;
+    }
+
+    /* search icon */
+    .icon {
+        position: absolute;
+        left: var(--padding);
+        transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* arrow-icon*/
+    .swap-off {
+        transform: rotate(-80deg);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* close button */
+    .close-btn {
+        /* removing default bg of button */
+        background: none;
+        border: none;
+        right: calc(var(--padding) - var(--gap));
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #111;
+        padding: 0.1em;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transition: 0.3s;
+        opacity: 0;
+        transform: scale(0);
+        visibility: hidden;
+    }
+
+    .form input:focus~.icon {
+        transform: rotate(var(--rotate)) scale(1.3);
+    }
+
+    .form input:focus~.icon .swap-off {
+        opacity: 1;
+        transform: rotate(-80deg);
+        visibility: visible;
+        color: var(--icon-change-color);
+    }
+
+    .form input:focus~.icon .swap-on {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    .form input:valid~.icon {
+        transform: scale(1.3) rotate(var(--rotate))
+    }
+
+    .form input:valid~.icon .swap-off {
+        opacity: 1;
+        visibility: visible;
+        color: var(--icon-change-color);
+    }
+
+    .form input:valid~.icon .swap-on {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    .form input:valid~.close-btn {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        transition: 0s;
+    }
+
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .top {
+        position: fixed;
+        z-index: 1;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        border-radius: 10px;
+        background: rgba(235, 232, 232, 0.306);
+    }
+
+    .jm1 {
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        width: 120%;
+        height: 100vh;
+    }
+
+    .body_bk {
+        width: 100%;
+        height: 70%;
+        background: url(./bk2.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    .jm1 p {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 10px;
+        font-family: 'OPPOSans-L', sans-serif;
+    }
+
+    @font-face {
+        font-family: 'OPPOSans-L';
+        src: url('./font/OPPOSans-L.ttf') format('truetype');
+    }
+
+    .image {
+        padding: 10px;
+        margin: 10px;
+        box-shadow: 0 0 30px #01010144;
+        border-radius: 20px;
+    }
+
+    .jm2 {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .jm3 {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .jm3 button {
+        width: 80px;
+        height: 40px;
+        cursor: pointer;
+        border: 1px solid #9e9e9e32;
+        border-radius: 10px;
+        color: #ea7a99;
+        background: white;
+    }
+
+    @media (max-width: 500px) {
+        .jmage img {
+            width: 70%;
+        }
+    }
+</style>
+
+<body>
+    <div class="body_bk">
+        <div class="top">
+            <form class="form">
+                <label for="search">
+                    <input required="" autocomplete="off" placeholder=搜索图片 id="search" type="text">
+                    <div class="icon">
+                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" class="swap-on">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round"
+                                stroke-linecap="round"></path>
+                        </svg>
+                        <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" class="swap-off">
+                            <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                    </div>
+                    <button type="reset" class="close-btn">
+                        <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </label>
+            </form>
+        </div>
+
+        <div class="jm1"></div>
+        <div class="jm2" id="jm2"></div>
+        <div class="jm3">
+            <button onclick="load()">加载更多</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    async function getImageDimensions(url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const img = new Image();
+            img.src = URL.createObjectURL(await response.blob());
+
+            return new Promise((resolve, reject) => {
+                img.onload = () => {
+                    resolve({
+                        width: img.naturalWidth,
+                        height: img.naturalHeight
+                    });
+                };
+                img.onerror = () => reject('Failed to load image');
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    let iu = 0
+
+    async function loadImages(k,l) {
+        const jm2Element = document.getElementById('jm2');
+
+        for (let i = k; i < l; i++) {
+            iu = i
+            let imageUrl = `./bk${i}.jpg`;
+            //let imageUrl = `https://gitee.com/BILIWLJFM/pixiv/raw/master/p${i}.jpg`
+            try {
+                const dimensions = await getImageDimensions(imageUrl);
+                console.log('Width:', dimensions.width);
+                console.log('Height:', dimensions.height);
+
+                if (dimensions.width <= 1000) {
+                    j = 2
+                } else if (dimensions.width <= 1800) {
+                    j = 5
+                } else if (dimensions.width <= 2800) {
+                    j = 7
+                } else if (dimensions.width <= 5000) {
+                    j = 10
+                } else if (dimensions.width >= 5000) {
+                    j = 15
+                }
+
+                let htmlText = `
+                <div class="image" id="p${i}">
+                    <img src="${imageUrl}" style="width:${parseInt(dimensions.width / j)}px;">
+                </div>
+            `;
+
+                jm2Element.innerHTML += htmlText;
+            } catch (error) {
+                console.error(error);
+                break; 
+            }
+        }
+    }
+    loadImages(2,20);
+    let iuo = iu + 20
+    function load() {
+        loadImages(iu,iuo)
+    }
+
+</script>
+
+</html>
